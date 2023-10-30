@@ -1,6 +1,12 @@
 
 
-# leerob.io
+# randompunctuation.com
+
+Source code for my blog. 
+
+The code has been initially cloned from this [template] (https://github.com/leerob/leerob.io) 
+
+Stack:
 
 - **Framework**: [Next.js](https://nextjs.org/)
 - **Database**: [PlanetScale](https://planetscale.com)
@@ -9,20 +15,7 @@
 - **Styling**: [Tailwind CSS](https://tailwindcss.com)
 - **Analytics**: [Vercel Analytics](https://vercel.com/analytics)
 
-## Running Locally
-
-This application requires Node.js v16.13+.
-
-```bash
-git clone https://github.com/leerob/leerob.io.git
-cd <dir>
-pnpm install
-pnpm run setup # Remove all of my personal information
-pnpm dev
-```
-
-Create a `.env` file similar to [`.env.example`](https://github.com/leerob/leerob.io/blob/main/.env.example).
 
 ## Cloning / Forking
 
-Please review the [license](https://github.com/leerob/leerob.io/blob/main/LICENSE.txt) and remove all of my personal information (resume, blog posts, images, etc.) by running `pnpm run setup`.
+Full instructions to get started can be found [here] (https://github.com/leerob/leerob.io)
