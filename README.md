@@ -4,7 +4,7 @@
 
 Source code for my blog. 
 
-The code has been initially cloned from this [template] (https://github.com/leerob/leerob.io) 
+The code has been initially cloned from this [template](https://github.com/leerob/leerob.io) 
 
 Stack:
 
@@ -18,4 +18,4 @@ Stack:
 
 ## Cloning / Forking
 
-Full instructions to get started can be found [here] (https://github.com/leerob/leerob.io)
+Full instructions to get started can be found [here](https://github.com/leerob/leerob.io)
