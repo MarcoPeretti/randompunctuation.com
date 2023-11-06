@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Projects',
   description:
-    "A few projects I worked on",
+    "Research projects",
 };
 
 export default function ProjectsPage() {
@@ -45,7 +45,7 @@ export default function ProjectsPage() {
 	
         <br></br>
         <p>
-          <b>Stack: </b>AWS Athena, Glue, S3, Lambda, SQS, CloudFront, Route 53, AWS Amplify,  Dynamo DB, SimpleDB, AWS Timestream
+          <b>Stack: </b>AWS Athena, Glue, S3, Lambda, SQS, CloudFront, Route 53, AWS Amplify, Dynamo DB, SimpleDB, AWS Timestream, AWS SDK for C++
         </p>
 
         <h3 id="ransomware">Ransomware protection</h3>
