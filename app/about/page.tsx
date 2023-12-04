@@ -99,7 +99,7 @@ export default function AboutPage() {
             Feedback is welcome.  
           </p>
           <p>
-          The idea about the Flaws and Strengths sections and comes from Gitlab&lsquo;s CEO own&nbsp;  
+          The idea about the Flaws and Strengths sections comes from Gitlab&lsquo;s CEO own&nbsp;  
           <a href="https://handbook.gitlab.com/handbook/ceo/" target="_blank">page</a> 
           . His introduction to Flaws resonated well with me, and I decided to keep it pretty much the same.
           </p>

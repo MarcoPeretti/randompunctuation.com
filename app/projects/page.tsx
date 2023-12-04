@@ -21,20 +21,22 @@ export default function ProjectsPage() {
           This page complements information on my CV, and covers recent side/research projects that I have worked on during the past 3/4 years.   
         </p>
         <p>
-          I am familiar with both Azure and AWS, and have used them pretty much since the beginning. In terms of programming languages, I tend to use mostly C# and C++, but have reasonable knowledge of both Python and Typescript. 
-          On the frontend, I tend to use Nextjs, Tailwind CSS. 
+          I have many years of experience with both Azure and AWS, which I have used pretty much since they launched. In terms of programming languages, I tend to use mostly C# and C++, but have reasonable knowledge of both Python and Typescript. 
+          On the frontend, I tend to use Next.js and Tailwind. 
         </p>
         
         <h3 id="uacguard">DLLs side-loading and local privilege escalation protection</h3>
         
           I wrote a Windows Kernel Driver to restrict Microsoft inbox executables to only load Microsoft signed DLLs and extended it to block a good number of known UAC exploits.  More information&nbsp;  
-        <a href="https://uacguard.com/about" target="_blank"> here</a>
+        <a href="https://uacguard.com/about" target="_blank"> here.</a>
    
         <h3 id="crash">Crash Analysis as a Service</h3>
 
           Here I looked into automating crash dumps collections and analysis. The backend is written in C# and runs on Windows Azure. The Crash Analysis engine is written in C++ and running in a Docker image. The frontend was a simple website deployed to Vercel.
-
-        <br></br>
+          <br></br>
+          <p>
+            It turns out that trying to fully automate crash analysis is a very hard problem to solve, especially without symbols. It has been nevertheless a fun project to work on. 
+          </p>
         <p>
           <b>Stack: </b>Azure Container Registry, Azure Container Instances, API Management Service, Function Apps, Logic Apps, Storage Accounts, DNS Zone, Key Vault, Send Grid, Front Door CDN, Application Insights, Service Bus, Azure Cosmos DB
         </p>
@@ -44,6 +46,15 @@ export default function ProjectsPage() {
           This research project aimed at centralizing applications’ battery usage as well as ways to reduce their consumptions and thus extend battery life. The Windows client is written in C++ and a mix of Go and Javascript on the backend. The frontend was a static website deployed to CloudFront.  
 	
         <br></br>
+        <p>
+          The applications' battery usage where collected from the SRUM database, and by far the hardest part was coming up with a good data model. 
+          I experimented with both Dynamo DB single table design as well as using a time-series database such as AWS timestream.   
+          </p>
+          
+          It should not be a big surprise to learn that the major culprits are browsers and video conferencing software. 
+          Browsers are interesting as, at runtime, they create lots of child processes and considerable gains were obtained by putting them to sleep when the window was not in focus. 
+          Newer browsers' versions have implemented similar solutions and I decided to stop working on this project. 
+       
         <p>
           <b>Stack: </b>AWS Athena, Glue, S3, Lambda, SQS, CloudFront, Route 53, AWS Amplify, Dynamo DB, SimpleDB, AWS Timestream, AWS SDK for C++
         </p>
