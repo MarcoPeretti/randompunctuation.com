@@ -17,6 +17,9 @@ const navItems = {
   '/about': {
     name: 'about',
   },
+  '/ask': {
+    name: 'ask',
+  },
 };
 
 export default function Navbar() {
