@@ -1,4 +1,6 @@
 import type { Metadata } from 'next';
+import v4 from 'public/images/v4-blue-1024.png';
+import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: 'How to',
@@ -26,6 +28,19 @@ function ArrowIcon() {
 export default function AboutPage() {
   return (
     <section>
+
+      <div className="columns-1 sm:columns-1 gap-4 my-4">
+        <div className="relative h-96 mb-4">
+          <Image
+            alt="Racing"
+            src={v4}
+            fill
+            sizes="(max-width: 1024px) 33vw"
+            priority
+            className="rounded-lg object-cover"
+          />
+        </div>
+      </div>
       <h1 className="font-bold text-2xl mb-8 tracking-tighter">
         About
       </h1>
