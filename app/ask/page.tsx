@@ -13,7 +13,7 @@ export default function Chat() {
     }
   };
 
-  const { completion, input, handleInputChange, handleSubmit, error } =
+  const { completion, input, handleInputChange, handleSubmit, isLoading, error } =
     useCompletion({
       onResponse() {
         scrollToBios();
@@ -39,6 +39,7 @@ export default function Chat() {
           value={input}
           placeholder="Eg: C++, then click enter..."
           onChange={handleInputChange}
+          disabled={isLoading}
         />
       </form>
       </div>
