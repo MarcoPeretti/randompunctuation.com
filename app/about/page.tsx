@@ -30,12 +30,12 @@ export default function AboutPage() {
     <section>
 
       <div className="columns-1 sm:columns-1 gap-4 my-4">
-        <div className="relative h-96 mb-4">
+        <div className="relative sm:h-96 h-80 mb-4">
           <Image
             alt="Racing"
             src={v4}
             fill
-            sizes="(max-width: 1024px) 33vw"
+            sizes="(max-width: 1024px) 100vw"
             priority
             className="rounded-lg object-cover"
           />
