@@ -27,7 +27,7 @@
   },
   "work": [
     {
-      "name": "Neosis",
+      "Company": "ELCA",
       "position": "Head Of Operations",
       "startDate": "2021-09-30",
       "endDate": "2023-04-30",
@@ -37,7 +37,7 @@
       "location": "Lausanne, Vaud, Switzerland"
     },
     {
-      "name": "Smallpdf",
+      "Company": "Smallpdf",
       "position": "Chief Technology Officer",
       "startDate": "2020-06-30",
       "endDate": "2021-06-30",
@@ -47,7 +47,7 @@
       "location": "Zurich, Switzerland"
     },
     {
-      "name": "Nexthink",
+      "Company": "Nexthink",
       "position": "Product Director",
       "startDate": "2018-12-31",
       "endDate": "2020-01-31",
@@ -57,7 +57,7 @@
       "location": "Lausanne Area, Switzerland"
     },
     {
-      "name": "Avecto",
+      "Company": "Avecto",
       "position": "CTO",
       "startDate": "2016-10-31",
       "endDate": "2018-11-30",
@@ -67,7 +67,7 @@
       "location": "Manchester, United Kingdom"
     },
     {
-      "name": "ARCA (Global)",
+      "Company": "ARCA",
       "position": "Head of Embedded Software and Firmware Development",
       "startDate": "2014-04-30",
       "endDate": "2016-09-30",
@@ -77,7 +77,7 @@
       "location": "Bollengo"
     },
     {
-      "name": "Cluris",
+      "Company": "Cluris",
       "position": "Founder and CTO",
       "startDate": "2011-10-31",
       "endDate": "2014-03-31",
@@ -87,7 +87,7 @@
       "location": "Italy"
     },
     {
-      "name": "BeyondTrust",
+      "Company": "BeyondTrust",
       "position": "Senior Project Manager",
       "startDate": "2009-12-31",
       "endDate": "2011-09-30",
@@ -97,7 +97,7 @@
       "location": "Italy"
     },
     {
-      "name": "Sysman",
+      "Company": "Sysman",
       "position": "Head of Development",
       "startDate": "2008-12-31",
       "endDate": "2009-11-30",
@@ -106,7 +106,7 @@
       "url": "https://www.linkedin.com/company/sysman/"
     },
     {
-      "name": "BeyondTrust",
+      "Company": "BeyondTrust",
       "position": "Co-founder & CTO",
       "startDate": "2003-10-31",
       "endDate": "2008-11-30",
@@ -115,24 +115,15 @@
       "url": "https://www.linkedin.com/company/beyondtrust/"
     },
     {
-      "name": "SecureWave",
+      "Company": "SecureWave",
       "position": "Founder & CEO",
       "startDate": "1997-01-31",
       "endDate": "2003-10-31",
       "highlights": [],
       "summary": "Founder and CEO\n\nFounded SecureWave and lead it for a few years. I managed about 40 employees, spread between Luxembourg, the U.K. and the US. Besides product development, I was heavily involved in the sale of our flagship products. In just a few years we closed large deals with leading institutions around the world. A few years after I left the company, SecureWave eventually merged with a US company, and is now trading as Ivanti. The products are currently deployed to several million endpoints.\n\nDesigned and managed the development of a sophisticated solution for managing the access to I/O devices (CD-ROMs / DVDs / USB / etc.). Our claim to fame was possibly the implementation of I/O Shadowing, where we intercepted all write operations to authorized devices (such as DVDs and CD-ROMs) and created a copy for audit purposes.\n\nDesigned and managed the development of the first proactive Application Whitelisting solution for Windows. The product consisted of a kernel driver on the client and a high performance application server capable of serving a very large number of concurrent requests.\n\nMain activities:\n\n• Product and project Management\n• Investor relations\n• Business planning\n• Key-accounts management\n• Competitors monitoring",
       "url": "https://www.linkedin.com/company/securewave/"
-    },
-    {
-      "name": "Cedel (now Clearstream), Luxembourg",
-      "position": "Developer",
-      "startDate": "1995-12-31",
-      "endDate": "1998-12-31",
-      "highlights": [],
-      "url": ""
     }
   ],
-  "volunteer": [],
   "education": [
     {
       "institution": "Strathclyde University",
@@ -144,7 +135,6 @@
       "courses": []
     }
   ],
-  "awards": [],
   "certificates": [
     {
       "name": "AWS Certified Cloud Practitioner",
