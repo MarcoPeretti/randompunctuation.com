@@ -31,7 +31,7 @@ export async function POST(req: Request) {
       messages: [
         {
           role: 'user',
-          content: `Describe my experience and skills with regards to ${messages[0].content} Answer using third person form and refer to me as Marco.`
+          content: `Describe my experience and skills with regards to ${messages[0].content} Answer using third person form and refer to me as Marco. You may also refer to my projects when relevant.`
         },
         {
           role: 'system',

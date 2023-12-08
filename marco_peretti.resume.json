@@ -3,13 +3,11 @@
   "basics": {
     "name": "Marco Peretti",
     "label": "Software Engineering Executive",
-    "image": "",
     "email": "marco.peretti@gmail.com",
-    "phone": "",
     "url": "",
     "summary": "I have a strong track record of success in both fast-growing and traditional companies. My expertise lies in leading and scaling multicultural and distributed development teams, delivering innovative products at scale.\n\n🔹 Career Highlights 🔹\n\n🌟 Market-Leading Least Privilege Management Solution: My efforts in designing and developing a  Least Privilege Management solution laid the foundation for BeyondTrust's success story.\n\n🌟 Driving Success at Avecto: As CTO of Avecto, I contributed significantly to its growth and eventual acquisition by Bomgar, now operating as BeyondTrust.\n\n🌟 Empowering Millions: As CTO of a leading B2B/B2C SaaS vendor, I played a crucial role in providing cutting-edge solutions to over 40 million daily users, driving success and enriching experiences.\n\n🌟 Enabling Innovation: I actively participated in leading research efforts, fostering the development of numerous innovative features that set our products apart in the market.",
     "location": {
-      "countryCode": "US",
+      "countryCode": "CH",
       "address": "Switzerland"
     },
     "profiles": [
@@ -142,7 +140,6 @@
       "url": "https://www.certmetrics.com/amazon/public/badge.aspx?i=9&t=c&d=2020-03-14&ci=AWS01340329"
     }
   ],
-  "publications": [],
   "skills": [
     {
       "name": "Internet of Things (IoT)",
@@ -419,19 +416,52 @@
       "language": "Italian"
     }
   ],
-  "interests": [],
-  "references": [
+  "interests": [
     {
-      "name": "Yves Moser",
-      "reference": "I have had the pleasure of working under Marco’s guidance. His passion and determination makes him a great leader and he will steer his team skillfully through tough waters.\nI highly recommend Marco for any leader position."
+      "name": "Distributed Computing",
+      "keywords": ["scalable systems", "microservices", "cloud computing", "serverless"]
+    },
+    {
+      "name": "Cloud Computing",
+      "keywords": ["AWS", "Azure"]
+    },
+    {
+      "name": "Cybersecurity",
+      "keywords": ["application whitelisting", "least privilege", "zero trust"]
+    },
+    {
+      "name": "Engineering Management",
+      "keywords": ["DevEx", "DevOps", "Agile", "SAFe", "Scalable Agile processes", "DORA Metrics"]
     }
   ],
   "projects": [
     {
       "name": "DevEx",
-      "startDate": "",
+      "startDate": "2023",
       "summary": "Web-based DevEx Survey prototype.\n\nI am interested in Developers’ Experience (DevEx), so I developed a survey application to collect key insights into the challenges that development teams face. Questions were derived from DevOps Research and Assessment (DORA), The Space Framework, and other sources.\n\nStack: NextJs, SuveryJs, Vercel, Supabase",
-      "url": null
+      "url": "https://www.randompunctuation.com/projects",
+      "keywords": ["React", "Typescript", "NextJs", "SurveyJs", "Vercel", "Supabase", "TailwindCSS"]
+    },
+    {
+      "name": "DLLs side-loading and local privilege escalation protection",
+      "startDate": "2023",
+      "summary": "Developed a Windows Kernel Driver to restrict Microsoft inbox executables to only load Microsoft signed DLLs and extended it to block a good number of known UAC exploits.",
+      "url": "https://uacguard.com/about",
+      "keywords": ["Windows Kernel Programming", "Windows Internals", "Windows Security", "DLLs Side-loading", "Local Privilege Escalation"]
+    },
+    { 
+      "name": "Crash Analysis as a Service",
+      "startDate": "2021",
+      "url": "https://www.randompunctuation.com/projects",
+      "summary": "Developed a service to analyze crash dumps and provide actionable insights to developers. The service is currently used by a few companies to improve the quality of their products.",
+      "keywords": ["Windows Azure", "Docker", "Windows Internals", "Windows Security", "Crash Analysis", "Crash Dumps", "Terraform", "Windows Error Reporting", "Azure Functions", "Azure Storage", "Azure Service Bus", "Azure Key Vault", "Azure App Service", "Azure DevOps", "Azure API Management", "Send Grid"]
+    },
+    {
+      "name": "Applications' Battery Usage",
+      "startDate": "2021",
+      "url": "https://www.randompunctuation.com/projects",
+      "summary": "This research project aimed at centralizing applications’ battery usage as well as ways to reduce their consumptions and thus extend battery life.",
+      "keywords": ["AWS Athena", "AWS Glue", "S3", "AWS Amplify", "Dynamo DB", "AWS SDK for C++", "Amazon SQS", "AWS Lamdba", "CloudFront", "Terraform"]
     }
   ],
   "meta": {
