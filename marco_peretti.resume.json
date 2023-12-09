@@ -129,6 +129,34 @@
       "studyType": "Bachelor",
       "score": "",
       "courses": []
+    },
+    {
+      "institution": "Udemy",
+      "area": "Certified Kubernetes Administrator",
+      "studyType": "Online",
+      "score": "",
+      "courses": []
+    },
+    {
+      "institution": "Udemy",
+      "area": "Azure Architecture Technologies",
+      "studyType": "Online",
+      "score": "",
+      "courses": [] 
+    },
+    {
+      "institution": "Coursera",
+      "area": "Machine Learning",
+      "studyType": "Online",
+      "score": "",
+      "courses": []
+    },
+    { 
+      "institution": "IMD Business School, Lausanne",
+      "area": "Leadership",
+      "studyType": "Training",
+      "score": "",
+      "courses": []
     }
   ],
   "certificates": [
