@@ -30,7 +30,7 @@ export default function AboutPage() {
     <section>
 
       <div className="columns-1 sm:columns-1 gap-4 my-4">
-        <div className="relative sm:h-96 h-80 mb-4">
+        <div className="relative w-full aspect-video mb-4">
           <Image
             alt="Racing"
             src={v4}
