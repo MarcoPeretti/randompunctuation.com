@@ -1,6 +1,7 @@
 import OpenAI from 'openai';
 import { OpenAIStream, StreamingTextResponse } from 'ai';
 import cv from 'marco_peretti.resume.json';
+import { savePromptEntry } from 'app/actions';
 
 // Create an OpenAI API client (that's edge friendly!)
 const openai = new OpenAI({
@@ -14,7 +15,7 @@ export async function POST(req: Request) {
   // Extract the `prompt` from the body of the request
   const { prompt } = await req.json();
 
-// old Describe my experience and skills regarding
+  await savePromptEntry(prompt);
 
   // Ask OpenAI for a streaming completion given the prompt
   const response = await openai.completions.create({

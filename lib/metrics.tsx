@@ -34,22 +34,3 @@ export const getViewsCount = cache(async () => {
   return queryBuilder.selectFrom('views').select(['slug', 'count']).execute();
 });
 
-export const getLeeYouTubeSubs = cache(async () => {
-  const response = await youtube.channels.list({
-    id: ['UCZMli3czZnd1uoc1ShTouQw'],
-    part: ['statistics'],
-  });
-
-  let channel = response.data.items![0];
-  return Number(channel?.statistics?.subscriberCount);
-});
-
-export const getVercelYouTubeSubs = cache(async () => {
-  const response = await youtube.channels.list({
-    id: ['UCLq8gNoee7oXM7MvTdjyQvA'],
-    part: ['statistics'],
-  });
-
-  let channel = response.data.items![0];
-  return Number(channel?.statistics?.subscriberCount);
-});

@@ -19,7 +19,6 @@ export async function increment(slug: string) {
     .values({ slug, count: 1 })
     .onDuplicateKeyUpdate({ count: views + 1 })
     .execute();
-  return;
 }
 
 async function getSession(): Promise<Session> {
@@ -30,6 +29,16 @@ async function getSession(): Promise<Session> {
 
   return session;
 }
+
+export async function savePromptEntry(prompt: string) {
+  const body = prompt;
+
+  await queryBuilder
+    .insertInto('prompts')
+    .values({ body })
+    .execute();
+}
+
 
 export async function saveGuestbookEntry(formData: FormData) {
   const session = await getSession();

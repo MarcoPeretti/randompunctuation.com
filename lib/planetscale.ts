@@ -10,6 +10,12 @@ interface GuestbookTable {
   updated_at?: string;
 }
 
+interface PromptsTable {
+  id: Generated<number>;
+  body: string;
+  created_by: string;
+}
+
 interface ViewsTable {
   slug: string;
   count: number;
@@ -17,6 +23,7 @@ interface ViewsTable {
 
 interface Database {
   guestbook: GuestbookTable;
+  prompts: PromptsTable;
   views: ViewsTable;
 }
 
