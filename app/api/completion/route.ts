@@ -14,6 +14,7 @@ export async function POST(req: Request) {
   // Extract the `prompt` from the body of the request
   const { prompt } = await req.json();
 
+// old Describe my experience and skills regarding
 
   // Ask OpenAI for a streaming completion given the prompt
   const response = await openai.completions.create({
@@ -21,7 +22,7 @@ export async function POST(req: Request) {
     max_tokens: 300,
     temperature: 0.5,
     stream: true,   
-    prompt: `Describe my experience and skills regarding ${prompt}. Anser using the third person form and refer to me either as Marco or he. Base your answers only on my resume. Resume: ${JSON.stringify(cv)}.`,
+    prompt: `${prompt} and limit the answer to about 200 words. Answer using the third person form and refer to me either as Marco or he. Base your answers only on my resume. Resume: ${JSON.stringify(cv)}. If the answer cannot be found in the resume, write "Sorry, could not find an answer."`,
    
   });
  

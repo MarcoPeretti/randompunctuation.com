@@ -37,7 +37,7 @@ export default function Chat() {
         <input
           className="space-y-10 w-full max-w-md p-2 mb-8 border rounded shadow-xl"
           value={input}
-          placeholder="Eg: C++, then click enter..."
+          placeholder="Eg: Tell me about your management experience"
           onChange={handleInputChange}
           disabled={isLoading}
         />
