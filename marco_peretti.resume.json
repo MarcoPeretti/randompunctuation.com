@@ -25,6 +25,15 @@
   },
   "work": [
     {
+      "Company": "sabbatical Inc.",
+      "position": "Head Of Learning",
+      "startDate": "2023-05-01",
+      "endDate": "2023-12-31",
+      "highlights": [],
+      "summary": "Currently on a short sabbatical studing Machine Learning and other interesting topics.",
+      "url": "",
+      "location": "Lausanne, Vaud, Switzerland"
+    },{
       "Company": "ELCA",
       "position": "Head Of Operations",
       "startDate": "2021-09-30",
