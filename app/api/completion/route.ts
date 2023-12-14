@@ -15,7 +15,13 @@ export async function POST(req: Request) {
   // Extract the `prompt` from the body of the request
   const { prompt } = await req.json();
 
-  await savePromptEntry(prompt);
+  if ((prompt != "On a scale of 1-10 how good is Marco?") &&
+  (prompt != "How does Marco cope with high-pressure environments?") &&
+  (prompt != "Why should our senior team hire Marco?")) {
+    
+    await savePromptEntry(prompt);
+  
+  }
 
   // Ask OpenAI for a streaming completion given the prompt
   const response = await openai.completions.create({
