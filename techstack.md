@@ -1,40 +1,54 @@
 <!--
---- Readme.md Snippet without images Start ---
+&lt;--- Readme.md Snippet without images Start ---&gt;
 ## Tech Stack
 MarcoPeretti/randompunctuation.com is built on the following main stack:
+
 - [Node.js](http://nodejs.org/) – Frameworks (Full Stack)
 - [React](https://reactjs.org/) – Javascript UI Libraries
 - [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) – Languages
 - [TypeScript](http://www.typescriptlang.org) – Languages
 - [Autoprefixer](https://github.com/postcss/autoprefixer) – CSS Pre-processors / Extensions
-- [Shell](https://en.wikipedia.org/wiki/Shell_script) – Shells
+- [PostCSS](https://github.com/postcss/postcss) – CSS Pre-processors / Extensions
 - [Next.js](https://nextjs.org/) – Frameworks (Full Stack)
+- [Tailwind CSS](https://tailwindcss.com) – Front-End Frameworks
 - [date-fns](https://date-fns.org/) – Javascript Utilities & Libraries
+- [OpenAI](https://openai.com/) – Large Language Models
+- [LangChain](https://github.com/hwchase17/langchain) – Large Language Model Tools
+- [Vercel AI SDK](https://sdk.vercel.ai/docs) – Large Language Model Tools
+- [pgvector](https://github.com/pgvector/pgvector/) – Database Tools
 
 Full tech stack [here](/techstack.md)
---- Readme.md Snippet without images End ---
 
---- Readme.md Snippet with images Start ---
+&lt;--- Readme.md Snippet without images End ---&gt;
+
+&lt;--- Readme.md Snippet with images Start ---&gt;
 ## Tech Stack
 MarcoPeretti/randompunctuation.com is built on the following main stack:
+
 - <img width='25' height='25' src='https://img.stackshare.io/service/1011/n1JRsFeB_400x400.png' alt='Node.js'/> [Node.js](http://nodejs.org/) – Frameworks (Full Stack)
 - <img width='25' height='25' src='https://img.stackshare.io/service/1020/OYIaJ1KK.png' alt='React'/> [React](https://reactjs.org/) – Javascript UI Libraries
 - <img width='25' height='25' src='https://img.stackshare.io/service/1209/javascript.jpeg' alt='JavaScript'/> [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) – Languages
 - <img width='25' height='25' src='https://img.stackshare.io/service/1612/bynNY5dJ.jpg' alt='TypeScript'/> [TypeScript](http://www.typescriptlang.org) – Languages
 - <img width='25' height='25' src='https://img.stackshare.io/service/2202/72d087642cfce6fef6f2dabec5bf49e8_400x400.png' alt='Autoprefixer'/> [Autoprefixer](https://github.com/postcss/autoprefixer) – CSS Pre-processors / Extensions
-- <img width='25' height='25' src='https://img.stackshare.io/service/4631/default_c2062d40130562bdc836c13dbca02d318205a962.png' alt='Shell'/> [Shell](https://en.wikipedia.org/wiki/Shell_script) – Shells
+- <img width='25' height='25' src='https://img.stackshare.io/service/3339/rlFcjEdI.png' alt='PostCSS'/> [PostCSS](https://github.com/postcss/postcss) – CSS Pre-processors / Extensions
 - <img width='25' height='25' src='https://img.stackshare.io/service/5936/nextjs.png' alt='Next.js'/> [Next.js](https://nextjs.org/) – Frameworks (Full Stack)
+- <img width='25' height='25' src='https://img.stackshare.io/service/8158/default_660b7c41c3ba489cb581eec89c04655404258c19.png' alt='Tailwind CSS'/> [Tailwind CSS](https://tailwindcss.com) – Front-End Frameworks
 - <img width='25' height='25' src='https://img.stackshare.io/service/10865/default_5551fb8853689f607a2bc0d5a09355d5a3d52bf0.png' alt='date-fns'/> [date-fns](https://date-fns.org/) – Javascript Utilities & Libraries
+- <img width='25' height='25' src='https://img.stackshare.io/service/48786/default_8b1119bcbb159cebebc2f6cfc9cd2e359b169d22.jpg' alt='OpenAI'/> [OpenAI](https://openai.com/) – Large Language Models
+- <img width='25' height='25' src='https://img.stackshare.io/service/48790/default_5b6c6b73f1ff3775c85d2a1ba954cb87e30cbf13.jpg' alt='LangChain'/> [LangChain](https://github.com/hwchase17/langchain) – Large Language Model Tools
+- <img width='25' height='25' src='https://img.stackshare.io/service/101756/default_4f2991cba3ec7fdd1cc87de69f4868157b0f2001.png' alt='Vercel AI SDK'/> [Vercel AI SDK](https://sdk.vercel.ai/docs) – Large Language Model Tools
+- <img width='25' height='25' src='https://img.stackshare.io/service/109221/default_b888cdf5617d936aa6aacf130911906955508639.png' alt='pgvector'/> [pgvector](https://github.com/pgvector/pgvector/) – Database Tools
 
 Full tech stack [here](/techstack.md)
---- Readme.md Snippet with images End ---
+
+&lt;--- Readme.md Snippet with images End ---&gt;
 -->
 <div align="center">
 
 # Tech Stack File
 ![](https://img.stackshare.io/repo.svg "repo") [MarcoPeretti/randompunctuation.com](https://github.com/MarcoPeretti/randompunctuation.com)![](https://img.stackshare.io/public_badge.svg "public")
 <br/><br/>
-|19<br/>Tools used|11/10/23 <br/>Report generated|
+|32<br/>Tools used|12/14/23 <br/>Report generated|
 |------|------|
 </div>
 
@@ -67,7 +81,7 @@ Full tech stack [here](/techstack.md)
 </tr>
 </table>
 
-## <img src='https://img.stackshare.io/frameworks.svg'/> Frameworks (4)
+## <img src='https://img.stackshare.io/frameworks.svg'/> Frameworks (6)
 <table><tr>
   <td align='center'>
   <img width='36' height='36' src='https://img.stackshare.io/service/2202/72d087642cfce6fef6f2dabec5bf49e8_400x400.png' alt='Autoprefixer'>
@@ -82,7 +96,7 @@ Full tech stack [here](/techstack.md)
   <br>
   <sub><a href="https://nextjs.org/">Next.js</a></sub>
   <br>
-  <sub>v14.0.1</sub>
+  <sub>v14.0.4</sub>
 </td>
 
 <td align='center'>
@@ -94,11 +108,40 @@ Full tech stack [here](/techstack.md)
 </td>
 
 <td align='center'>
+  <img width='36' height='36' src='https://img.stackshare.io/service/3339/rlFcjEdI.png' alt='PostCSS'>
+  <br>
+  <sub><a href="https://github.com/postcss/postcss">PostCSS</a></sub>
+  <br>
+  <sub></sub>
+</td>
+
+<td align='center'>
   <img width='36' height='36' src='https://img.stackshare.io/service/1020/OYIaJ1KK.png' alt='React'>
   <br>
   <sub><a href="https://reactjs.org/">React</a></sub>
   <br>
   <sub>v18.2.0</sub>
+</td>
+
+<td align='center'>
+  <img width='36' height='36' src='https://img.stackshare.io/service/8158/default_660b7c41c3ba489cb581eec89c04655404258c19.png' alt='Tailwind CSS'>
+  <br>
+  <sub><a href="https://tailwindcss.com">Tailwind CSS</a></sub>
+  <br>
+  <sub></sub>
+</td>
+
+</tr>
+</table>
+
+## <img src='https://img.stackshare.io/databases.svg'/> Data (1)
+<table><tr>
+  <td align='center'>
+  <img width='36' height='36' src='https://img.stackshare.io/service/109221/default_b888cdf5617d936aa6aacf130911906955508639.png' alt='pgvector'>
+  <br>
+  <sub><a href="https://github.com/pgvector/pgvector/">pgvector</a></sub>
+  <br>
+  <sub></sub>
 </td>
 
 </tr>
@@ -133,14 +176,30 @@ Full tech stack [here](/techstack.md)
 </tr>
 </table>
 
-## Other (2)
+## Other (4)
 <table><tr>
   <td align='center'>
-  <img width='36' height='36' src='https://img.stackshare.io/service/4631/default_c2062d40130562bdc836c13dbca02d318205a962.png' alt='Shell'>
+  <img width='36' height='36' src='https://img.stackshare.io/service/48790/default_5b6c6b73f1ff3775c85d2a1ba954cb87e30cbf13.jpg' alt='LangChain'>
   <br>
-  <sub><a href="https://en.wikipedia.org/wiki/Shell_script">Shell</a></sub>
+  <sub><a href="https://github.com/hwchase17/langchain">LangChain</a></sub>
   <br>
   <sub></sub>
+</td>
+
+<td align='center'>
+  <img width='36' height='36' src='https://img.stackshare.io/service/48786/default_8b1119bcbb159cebebc2f6cfc9cd2e359b169d22.jpg' alt='OpenAI'>
+  <br>
+  <sub><a href="https://openai.com/">OpenAI</a></sub>
+  <br>
+  <sub>v4.20.1</sub>
+</td>
+
+<td align='center'>
+  <img width='36' height='36' src='https://img.stackshare.io/service/101756/default_4f2991cba3ec7fdd1cc87de69f4868157b0f2001.png' alt='Vercel AI SDK'>
+  <br>
+  <sub><a href="https://sdk.vercel.ai/docs">Vercel AI SDK</a></sub>
+  <br>
+  <sub>v1.1.1</sub>
 </td>
 
 <td align='center'>
@@ -155,21 +214,29 @@ Full tech stack [here](/techstack.md)
 </table>
 
 
-## <img src='https://img.stackshare.io/group.svg' /> Open source packages (7)</h2>
+## <img src='https://img.stackshare.io/group.svg' /> Open source packages (15)</h2>
 
-## <img width='24' height='24' src='https://img.stackshare.io/service/1120/lejvzrnlpb308aftn31u.png'/> npm (7)
+## <img width='24' height='24' src='https://img.stackshare.io/service/1120/lejvzrnlpb308aftn31u.png'/> npm (15)
 
 |NAME|VERSION|LAST UPDATED|LAST UPDATED BY|LICENSE|VULNERABILITIES|
 |:------|:------|:------|:------|:------|:------|
-|[@types/node](https://www.npmjs.com/@types/node)|v20.5.8|11/02/23|marcoperetti |MIT|N/A|
-|[@types/react](https://www.npmjs.com/@types/react)|v18.2.21|11/02/23|marcoperetti |MIT|N/A|
-|[@types/react-dom](https://www.npmjs.com/@types/react-dom)|v18.2.7|11/02/23|marcoperetti |MIT|N/A|
+|[@planetscale/database](https://www.npmjs.com/@planetscale/database)|v1.11.0|10/30/23|marcoperetti |N/A|N/A|
+|[@types/node](https://www.npmjs.com/@types/node)|v20.8.9|12/08/23|marcoperetti |MIT|N/A|
+|[@types/react](https://www.npmjs.com/@types/react)|v18.2.32|12/08/23|marcoperetti |MIT|N/A|
+|[@types/react-dom](https://www.npmjs.com/@types/react-dom)|v18.2.14|12/08/23|marcoperetti |MIT|N/A|
+|[@vercel/analytics](https://www.npmjs.com/@vercel/analytics)|v1.1.1|11/02/23|marcoperetti |N/A|N/A|
+|[@vercel/edge-config](https://www.npmjs.com/@vercel/edge-config)|v0.4.1|12/07/23|marcoperetti |N/A|N/A|
 |[googleapis](https://www.npmjs.com/googleapis)|v126.0.1|10/30/23|marcoperetti |Apache-2.0|N/A|
-|[postcss](https://www.npmjs.com/postcss)|v8.4.31|11/02/23|marcoperetti |MIT|N/A|
-|[react-dom](https://www.npmjs.com/react-dom)|v18.2.0|11/02/23|marcoperetti |MIT|N/A|
-|[tailwindcss](https://www.npmjs.com/tailwindcss)|v3.3.5|11/02/23|marcoperetti |MIT|N/A|
+|[kysely](https://www.npmjs.com/kysely)|v0.26.3|10/30/23|marcoperetti |N/A|N/A|
+|[kysely-planetscale](https://www.npmjs.com/kysely-planetscale)|v1.4.0|10/30/23|marcoperetti |N/A|N/A|
+|[next-auth](https://www.npmjs.com/next-auth)|v5.0.0|12/08/23|marcoperetti |N/A|N/A|
+|[next-contentlayer](https://www.npmjs.com/next-contentlayer)|v0.3.4|12/08/23|marcoperetti |N/A|N/A|
+|[openai](https://www.npmjs.com/openai)|v4.20.1|12/07/23|marcoperetti |N/A|N/A|
+|[openai-edge](https://www.npmjs.com/openai-edge)|v1.2.2|12/07/23|marcoperetti |N/A|N/A|
+|[react-dom](https://www.npmjs.com/react-dom)|v18.2.0|12/08/23|marcoperetti |MIT|N/A|
+|[tailwindcss](https://www.npmjs.com/tailwindcss)|v3.3.6|12/08/23|marcoperetti |MIT|N/A|
 
 <br/>
 <div align='center'>
 
-Generated via [Stack File](https://github.com/apps/stack-file)
+Generated via [Stack File](https://github.com/marketplace/stack-file)
