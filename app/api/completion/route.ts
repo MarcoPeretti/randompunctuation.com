@@ -8,6 +8,8 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
  
+const env = process.env.NODE_ENV
+
 // IMPORTANT! Set the runtime to edge
 export const runtime = 'edge';
  
@@ -15,13 +17,16 @@ export async function POST(req: Request) {
   // Extract the `prompt` from the body of the request
   const { prompt } = await req.json();
 
-  if ((prompt != "On a scale of 1-10 how good is Marco?") &&
+  if (env != "development" &&
+  (prompt != "On a scale of 1-10 how good is Marco?") &&
   (prompt != "How does Marco cope with high-pressure environments?") &&
   (prompt != "Why should our senior team hire Marco?")) {
     
     await savePromptEntry(prompt);
   
   }
+
+  console.log(prompt);
 
   // Ask OpenAI for a streaming completion given the prompt
   const response = await openai.completions.create({

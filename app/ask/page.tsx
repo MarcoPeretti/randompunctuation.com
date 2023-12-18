@@ -6,11 +6,14 @@ import { useRef } from 'react';
 export default function Chat() {
 
   const bioRef = useRef<null | HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   function onChange(e) {
-    console.log(e.target.value);
     handleInputChange(e);
-    handleSubmit(e);
+
+    if (inputRef.current) {
+      inputRef.current.focus(); // Set focus to the input field
+    }
   }
 
   const scrollToBios = () => {
@@ -51,6 +54,7 @@ export default function Chat() {
 
       <form onSubmit={handleSubmit}>
         <input
+          ref={inputRef}
           className="space-y-10 w-full max-w-md p-2 mb-8 border rounded shadow-xl"
           value={input}
           placeholder="Eg: Tell me about your management experience"
