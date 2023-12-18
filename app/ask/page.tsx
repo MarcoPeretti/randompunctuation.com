@@ -55,6 +55,7 @@ export default function Chat() {
       <form onSubmit={handleSubmit}>
         <input
           ref={inputRef}
+          maxLength={50} 
           className="space-y-10 w-full max-w-md p-2 mb-8 border rounded shadow-xl"
           value={input}
           placeholder="Eg: Tell me about your management experience"

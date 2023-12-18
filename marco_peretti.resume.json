@@ -4,8 +4,7 @@
     "name": "Marco Peretti",
     "label": "Software Engineering Executive",
     "email": "marco.peretti@gmail.com",
-    "url": "",
-    "summary": "I have a strong track record of success in both fast-growing and traditional companies. My expertise lies in leading and scaling multicultural and distributed development teams, delivering innovative products at scale.\n\n🔹 Career Highlights 🔹\n\n🌟 Market-Leading Least Privilege Management Solution: My efforts in designing and developing a  Least Privilege Management solution laid the foundation for BeyondTrust's success story.\n\n🌟 Driving Success at Avecto: As CTO of Avecto, I contributed significantly to its growth and eventual acquisition by Bomgar, now operating as BeyondTrust.\n\n🌟 Empowering Millions: As CTO of a leading B2B/B2C SaaS vendor, I played a crucial role in providing cutting-edge solutions to over 40 million daily users, driving success and enriching experiences.\n\n🌟 Enabling Innovation: I actively participated in leading research efforts, fostering the development of numerous innovative features that set our products apart in the market.",
+    "summary": "I have a strong track record of success in both fast-growing and traditional companies. My expertise lies in leading and scaling multicultural and distributed development teams, delivering innovative products at scale. Career Highlights  Market-Leading Least Privilege Management Solution: My efforts in designing and developing a  Least Privilege Management solution laid the foundation for BeyondTrust's success story. Driving Success at Avecto: As CTO of Avecto, I contributed significantly to its growth and eventual acquisition by Bomgar, now operating as BeyondTrust. Empowering Millions: As CTO of a leading B2B/B2C SaaS vendor, I played a crucial role in providing cutting-edge solutions to over 40 million daily users, driving success and enriching experiences. Enabling Innovation: I actively participated in leading research efforts, fostering the development of numerous innovative features that set our products apart in the market.",
     "location": {
       "countryCode": "CH",
       "address": "Switzerland"
@@ -29,16 +28,13 @@
       "position": "Head Of Learning",
       "startDate": "2023-05-01",
       "endDate": "2023-12-31",
-      "highlights": [],
       "summary": "Currently on a short sabbatical studing Machine Learning and other interesting topics.",
-      "url": "",
       "location": "Lausanne, Vaud, Switzerland"
     },{
       "Company": "ELCA",
       "position": "Head Of Operations",
       "startDate": "2021-09-30",
       "endDate": "2023-04-30",
-      "highlights": [],
       "summary": "Managed a team in charge of integration projects, customer support, offers management for a new product (100M CHF investment, 200+ people)\n\nKey Contributions:\n• Successfully retained 4 out of 5 clients under very challenging conditions\n• Played a key role in securing a substantial investment through effective negotiations and proposal\ndevelopment\n• Collaborated with cross-functional teams to draft and negotiate complex framework contracts\n• Led complex data migration project\n• Established and managed a technical support department",
       "url": "https://www.linkedin.com/company/neosis/",
       "location": "Lausanne, Vaud, Switzerland"
@@ -48,7 +44,6 @@
       "position": "Chief Technology Officer",
       "startDate": "2020-06-30",
       "endDate": "2021-06-30",
-      "highlights": [],
       "summary": "Managed a team of 25 engineers (Web, Desktop, Mobile) to support 40+ million daily users and processing 200+ million documents per month.\n\nKey Contributions:\n\n•\tAchieved 99% payments success rate\n•\tReplaced in-house authentication and support SAML/OIDC and social logins\n•\tReplaced File Storage functionality with zero downtime\n•\tReplaced in-house authentication with robust OSS solution  \n•\tIntroduced mobile payments on iOS and Android\n•\tReduced AWS costs by 20%\n•\tMany DevOps and Security improvements (Terraform, Ansible, ECR, ECS, etc.)",
       "url": "https://www.linkedin.com/company/smallpdf/",
       "location": "Zurich, Switzerland"
@@ -58,7 +53,6 @@
       "position": "Product Director",
       "startDate": "2018-12-31",
       "endDate": "2020-01-31",
-      "highlights": [],
       "summary": "Led Product and Engineering for the Data Collection team (about 20 engineers), led company-wide engineering initiatives.\n\nKey contributions:\n\n•\tIncreased cross-platform code and QA automation by 50%\n•\tIntroduced Technical Debt management policy (company-wide)\n•\tTrained whole R&D on Threat Modelling, introduced Secure SDLC\n•\tDelivered significant new features\n•\tSupported product management initiatives",
       "url": "https://www.linkedin.com/company/nexthink/",
       "location": "Lausanne Area, Switzerland"
@@ -68,7 +62,6 @@
       "position": "CTO",
       "startDate": "2016-10-31",
       "endDate": "2018-11-30",
-      "highlights": [],
       "summary": "Led a team of 60 engineers to support our Windows, Mac, and Linux agents and management solutions (Microsoft Azure,  McAfee ePolicy Orchestrator, Group Policy)\n\nKey contributions:\n\n•\tBrought to market Trusted Application Protection, Linux Agent\n•\tDelivered new cloud-based management solution to 300k endpoints client\n•\tReduced team dependencies, leading to shorter release cycles\n•\tSuccessfully introduced Essential SAFe\n\nAvecto got acquired by Bomgar, now trading as BeyondTrust",
       "url": "https://www.linkedin.com/company/avecto/",
       "location": "Manchester, United Kingdom"
@@ -78,7 +71,6 @@
       "position": "Head of Embedded Software and Firmware Development",
       "startDate": "2014-04-30",
       "endDate": "2016-09-30",
-      "highlights": [],
       "summary": "Lead a team of 40+ software and firmware engineers.\n\nKey contributions:\n\n•\tManaged the development of a new product range (FW & SW)\n•\tModernized software development processes and tools (Git, Aha!, Jira)\n•\tIntroduced and trained teams on Scrum and agile processes\n•\tSubstantially reduced maintenance costs\n•\tIntroduced innovative web based on-board and remote management solution (JavaScript and Electron) for a new product line",
       "url": "https://www.linkedin.com/company/arcatech-systems/",
       "location": "Bollengo"
@@ -88,9 +80,7 @@
       "position": "Founder and CTO",
       "startDate": "2011-10-31",
       "endDate": "2014-03-31",
-      "highlights": [],
       "summary": "Lead the design and development a multi-tenant SaaS solution on Windows Azure to allow for the management and definition of AppLocker policies at scale. I actively participated to the design and development of the solution, where we used C# and modern development practices (Dependency Injection, Unit Tests, Test automation, etc.).\n\nKey Contributions:\n\n•\tProduct Management\n•\tBacklog and Sprint Management\n•\tDefinition of coding standards\n\nMinor consulting activities (Agile Coach).",
-      "url": "",
       "location": "Italy"
     },
     {
@@ -98,7 +88,6 @@
       "position": "Senior Project Manager",
       "startDate": "2009-12-31",
       "endDate": "2011-09-30",
-      "highlights": [],
       "summary": "Lead a distributed development team and actively contributed to the development of a new security solution. \n\nKey Contributions:\n\n•\tBacklog Management\n•\tSprints preparation and follow-up\n•\tCode reviews\n•\tDefinition of Coding Standards",
       "url": "https://www.linkedin.com/company/beyondtrust/",
       "location": "Italy"
@@ -108,7 +97,6 @@
       "position": "Head of Development",
       "startDate": "2008-12-31",
       "endDate": "2009-11-30",
-      "highlights": [],
       "summary": "Key Contributions:\n\n•\tTrained team on modern development practices\n•\tRe-engineered data access layer (Oracle, SQL Server, Informix, DB2)\n•\tStandardized error handling and reduced by 50% time to determine and fix customer issues\n•\tReplaced custom infrastructure code with mature OSS solutions\n•\tImproved overall performance by 30%\n•\tIdentified and eliminated complex deadlocks, improved performance and standardized error handling.",
       "url": "https://www.linkedin.com/company/sysman/"
     },
@@ -117,7 +105,6 @@
       "position": "Co-founder & CTO",
       "startDate": "2003-10-31",
       "endDate": "2008-11-30",
-      "highlights": [],
       "summary": "Founded NeoValens and developed word's first Privilege Management solution for Windows. NeoVales was acquired and evolved into BeyondTrust, where I  lead the development of our flagship product. \n\n• Product and Project Management\n• Lead the design of the product high-level architecture\n• Managed the IT infrastructure team (US)\n• Managed the QA team (US)\n• Designed encrypted file format and key management\n• Designed secure file upload\n\nThe products proved extremely successful and are currently deployed across the world at the most prestigious organizations (deployed to several million endpoints).",
       "url": "https://www.linkedin.com/company/beyondtrust/"
     },
@@ -126,7 +113,6 @@
       "position": "Founder & CEO",
       "startDate": "1997-01-31",
       "endDate": "2003-10-31",
-      "highlights": [],
       "summary": "Founder and CEO\n\nFounded SecureWave and lead it for a few years. I managed about 40 employees, spread between Luxembourg, the U.K. and the US. Besides product development, I was heavily involved in the sale of our flagship products. In just a few years we closed large deals with leading institutions around the world. A few years after I left the company, SecureWave eventually merged with a US company, and is now trading as Ivanti. The products are currently deployed to several million endpoints.\n\nDesigned and managed the development of a sophisticated solution for managing the access to I/O devices (CD-ROMs / DVDs / USB / etc.). Our claim to fame was possibly the implementation of I/O Shadowing, where we intercepted all write operations to authorized devices (such as DVDs and CD-ROMs) and created a copy for audit purposes.\n\nDesigned and managed the development of the first proactive Application Whitelisting solution for Windows. The product consisted of a kernel driver on the client and a high performance application server capable of serving a very large number of concurrent requests.\n\nMain activities:\n\n• Product and project Management\n• Investor relations\n• Business planning\n• Key-accounts management\n• Competitors monitoring",
       "url": "https://www.linkedin.com/company/securewave/"
     }
@@ -135,37 +121,27 @@
     {
       "institution": "Strathclyde University",
       "area": "Information Technology",
-      "studyType": "Bachelor",
-      "score": "",
-      "courses": []
+      "studyType": "Bachelor"
     },
     {
       "institution": "Udemy",
       "area": "Certified Kubernetes Administrator",
-      "studyType": "Online",
-      "score": "",
-      "courses": []
+      "studyType": "Online"
     },
     {
       "institution": "Udemy",
       "area": "Azure Architecture Technologies",
-      "studyType": "Online",
-      "score": "",
-      "courses": [] 
+      "studyType": "Online"
     },
     {
       "institution": "Coursera",
       "area": "Machine Learning",
-      "studyType": "Online",
-      "score": "",
-      "courses": []
+      "studyType": "Online"
     },
     { 
       "institution": "IMD Business School, Lausanne",
       "area": "Leadership",
-      "studyType": "Training",
-      "score": "",
-      "courses": []
+      "studyType": "Training"
     }
   ],
   "certificates": [
@@ -179,264 +155,154 @@
   ],
   "skills": [
     {
-      "name": "Internet of Things (IoT)",
-      "level": "",
-      "keywords": []
+      "name": "Internet of Things (IoT)"
     },
     {
-      "name": "Product Vision",
-      "level": "",
-      "keywords": []
+      "name": "Product Vision"
     },
     {
-      "name": "Web Applications",
-      "level": "",
-      "keywords": []
+      "name": "Web Applications"
     },
     {
-      "name": "Budget Management",
-      "level": "",
-      "keywords": []
+      "name": "Budget Management"
     },
     {
-      "name": "Nexthink",
-      "level": "",
-      "keywords": []
+      "name": "Test Automation"
     },
     {
-      "name": "Arca",
-      "level": "",
-      "keywords": []
+      "name": "Scaled Agile Methodologies"
     },
     {
-      "name": "Test Automation",
-      "level": "",
-      "keywords": []
+      "name": "Microsoft SQL Server"
     },
     {
-      "name": "Agile Methodologies",
-      "level": "",
-      "keywords": []
+      "name": "C++"
     },
     {
-      "name": "Microsoft SQL Server",
-      "level": "",
-      "keywords": []
+      "name": "Git"
     },
     {
-      "name": "C++",
-      "level": "",
-      "keywords": []
+      "name": "SQL"
     },
     {
-      "name": "Git",
-      "level": "",
-      "keywords": []
+      "name": "Contract Management"
     },
     {
-      "name": "SQL",
-      "level": "",
-      "keywords": []
+      "name": "Scaled Agile Framework"
     },
     {
-      "name": "Contract Management",
-      "level": "",
-      "keywords": []
+      "name": "Product Management"
     },
     {
-      "name": "Scaled Agile Framework",
-      "level": "",
-      "keywords": []
+      "name": "Microsoft Azure"
     },
     {
-      "name": "Product Management",
-      "level": "",
-      "keywords": []
+      "name": "Amazon AWS"
     },
     {
-      "name": "Microsoft Azure",
-      "level": "",
-      "keywords": []
+      "name": ".NET Framework"
     },
     {
-      "name": "Amazon AWS",
-      "level": "",
-      "keywords": []
+      "name": "Kubernetes"
     },
     {
-      "name": ".NET Framework",
-      "level": "",
-      "keywords": []
+      "name": "C#"
     },
     {
-      "name": "Kubernetes",
-      "level": "",
-      "keywords": []
+      "name": "Amazon Web Services (AWS)"
     },
     {
-      "name": "C#",
-      "level": "",
-      "keywords": []
+      "name": "Scrum"
     },
     {
-      "name": "Amazon Web Services (AWS)",
-      "level": "",
-      "keywords": []
+      "name": "Information Security"
     },
     {
-      "name": "Scrum",
-      "level": "",
-      "keywords": []
+      "name": "cross-functional teams management"
     },
     {
-      "name": "Information Security",
-      "level": "",
-      "keywords": []
+      "name": "Contract Negotiation"
     },
     {
-      "name": "Gestione team cross-functional",
-      "level": "",
-      "keywords": []
+      "name": "Authentication"
     },
     {
-      "name": "Contract Negotiation",
-      "level": "",
-      "keywords": []
+      "name": "Windows Azure"
     },
     {
-      "name": "Authentication",
-      "level": "",
-      "keywords": []
+      "name": "Microservices"
     },
     {
-      "name": "Windows Azure",
-      "level": "",
-      "keywords": []
+      "name": "Cloud Computing"
     },
     {
-      "name": "Microservices",
-      "level": "",
-      "keywords": []
+      "name": "Project Management"
     },
     {
-      "name": "Cloud Computing",
-      "level": "",
-      "keywords": []
+      "name": "ISO 27001"
     },
     {
-      "name": "Project Management",
-      "level": "",
-      "keywords": []
+      "name": "DevOps"
     },
     {
-      "name": "ISO 27001",
-      "level": "",
-      "keywords": []
+      "name": "Coaching"
     },
     {
-      "name": "DevOps",
-      "level": "",
-      "keywords": []
+      "name": "Outsourcing Management"
     },
     {
-      "name": "Coaching",
-      "level": "",
-      "keywords": []
+      "name": "Engineering Management"
     },
     {
-      "name": "Outsourcing Management",
-      "level": "",
-      "keywords": []
+      "name": "Design Patterns"
     },
     {
-      "name": "Engineering Management",
-      "level": "",
-      "keywords": []
+      "name": "Android"
     },
     {
-      "name": "Design Patterns",
-      "level": "",
-      "keywords": []
+      "name": "Strategy"
     },
     {
-      "name": "Android",
-      "level": "",
-      "keywords": []
+      "name": "iOS"
     },
     {
-      "name": "Strategy",
-      "level": "",
-      "keywords": []
+      "name": "docker"
     },
     {
-      "name": "iOS",
-      "level": "",
-      "keywords": []
+      "name": "JavaScript"
     },
     {
-      "name": "docker",
-      "level": "",
-      "keywords": []
+      "name": "Web Services API"
     },
     {
-      "name": "JavaScript",
-      "level": "",
-      "keywords": []
+      "name": "Leadership"
     },
     {
-      "name": "Web Services API",
-      "level": "",
-      "keywords": []
+      "name": "Cybersecurity"
     },
     {
-      "name": "Leadership",
-      "level": "",
-      "keywords": []
+      "name": "Windows Kernel & Systems programming"
     },
     {
-      "name": "Cybersecurity",
-      "level": "",
-      "keywords": []
+      "name": "Software Development"
     },
     {
-      "name": "Windows Kernel & Systems programming",
-      "level": "",
-      "keywords": []
+      "name": "Web Development"
     },
     {
-      "name": "Software Development",
-      "level": "",
-      "keywords": []
+      "name": "Jira"
     },
     {
-      "name": "Web Development",
-      "level": "",
-      "keywords": []
+      "name": "Powershell"
     },
     {
-      "name": "Jira",
-      "level": "",
-      "keywords": []
+      "name": "Engineering"
     },
     {
-      "name": "Powershell",
-      "level": "",
-      "keywords": []
+      "name": "Windows kernel programming"
     },
     {
-      "name": "Engineering",
-      "level": "",
-      "keywords": []
-    },
-    {
-      "name": "Windows kernel programming",
-      "level": "",
-      "keywords": []
-    },
-    {
-      "name": "Systems Programming",
-      "level": "",
-      "keywords": []
+      "name": "Systems Programming"
     }
   ],
   "languages": [
