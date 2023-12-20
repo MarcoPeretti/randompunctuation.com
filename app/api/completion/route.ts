@@ -37,7 +37,7 @@ export async function POST(req: Request) {
       max_tokens: 350,
       temperature: 0.6,
       stream: true,   
-      prompt: `${prompt} and limit the answer to about 200 words. Answer using the third person form and refer to me either as Marco or he. Base your answers on my resume and do your very best to answer any question. Resume: ${JSON.stringify(cv)}. If the answer cannot be found in the resume, write "Sorry, cannot not answer that question. Check spelling, rephrase or simply submit again. chatGPT's behaviour is somewhat erratic"`,
+      prompt: `${prompt} and limit the answer to about 150 words. Answer using the third person form and refer to me either as Marco or he. Base your answers on my resume and do your very best to answer any question. Resume: ${JSON.stringify(cv)}. If the answer cannot be found in the resume, write "Sorry, cannot not answer that question. Check spelling, rephrase or simply submit again. chatGPT's behaviour is somewhat erratic"`,
     
     });
   
