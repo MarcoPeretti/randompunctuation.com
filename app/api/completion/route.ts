@@ -21,7 +21,7 @@ export async function POST(req: Request) {
     const { prompt } = await req.json();
 
     if (env != "development" &&
-    (prompt != "On a scale of 1-10 how good is Marco?") &&
+    (prompt != "Describe his management style") &&
     (prompt != "How does Marco cope with high-pressure environments?") &&
     (prompt != "Why should our senior team hire Marco?")) {
       
