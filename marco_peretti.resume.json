@@ -4,7 +4,7 @@
     "name": "Marco Peretti",
     "label": "Software Engineering Executive",
     "email": "marco.peretti@gmail.com",
-    "summary": "I have a strong track record of success in both fast-growing and traditional companies. My expertise lies in leading and scaling multicultural and distributed development teams, delivering innovative products at scale. Career Highlights  Market-Leading Least Privilege Management Solution: My efforts in designing and developing a  Least Privilege Management solution laid the foundation for BeyondTrust's success story. Driving Success at Avecto: As CTO of Avecto, I contributed significantly to its growth and eventual acquisition by Bomgar, now operating as BeyondTrust. Empowering Millions: As CTO of a leading B2B/B2C SaaS vendor, I played a crucial role in providing cutting-edge solutions to over 40 million daily users, driving success and enriching experiences. Enabling Innovation: I actively participated in leading research efforts, fostering the development of numerous innovative features that set our products apart in the market.",
+    "summary": "I have a strong track record of success in both fast-growing and traditional companies. My expertise lies in leading and scaling multicultural and distributed development teams, delivering innovative products at scale. Career Highlights  Market-Leading Least Privilege Management Solution: My efforts in designing and developing a  Least Privilege Management solution laid the foundation for BeyondTrust's success story. Driving Success at Avecto: As CTO of Avecto, I contributed significantly to its growth and eventual acquisition by Bomgar, now operating as BeyondTrust. Empowering Millions: As CTO of a leading B2B/B2C SaaS vendor, I played a crucial role in providing cutting-edge solutions to over 40 million daily users, driving success and enriching experiences. Enabling Innovation: I actively participated in leading research efforts, fostering the development of numerous innovative features that set our products apart in the market. Extensive experience in Scrum and Scaled Agile Methodologies.",
     "location": {
       "countryCode": "CH",
       "address": "Switzerland"
@@ -24,11 +24,11 @@
   },
   "work": [
     {
-      "Company": "sabbatical Inc.",
+      "Company": "Sabbatical Inc.",
       "position": "Head Of Learning",
       "startDate": "2023-05-01",
       "endDate": "2023-12-31",
-      "summary": "Currently on a short sabbatical studing Machine Learning and other interesting topics.",
+      "summary": "Currently on a short sabbatical studing Machine Learning, Kubernetes, Cloud Computing and other interesting topics. Python, TypeScript, C++ and C# are my main focus.\n\nI am also working on a few personal projects, such as a DevEx survey prototype (TypeScript, NextJs, Vercel).",
       "location": "Lausanne, Vaud, Switzerland"
     },{
       "Company": "ELCA",
@@ -44,7 +44,7 @@
       "position": "Chief Technology Officer",
       "startDate": "2020-06-30",
       "endDate": "2021-06-30",
-      "summary": "Managed a team of 25 engineers (Web, Desktop, Mobile) to support 40+ million daily users and processing 200+ million documents per month.\n\nKey Contributions:\n\n•\tAchieved 99% payments success rate\n•\tReplaced in-house authentication and support SAML/OIDC and social logins\n•\tReplaced File Storage functionality with zero downtime\n•\tReplaced in-house authentication with robust OSS solution  \n•\tIntroduced mobile payments on iOS and Android\n•\tReduced AWS costs by 20%\n•\tMany DevOps and Security improvements (Terraform, Ansible, ECR, ECS, etc.)",
+      "summary": "Managed a team of 25 engineers (Web, Desktop, iOS, Android) to support 40+ million daily users and processing 200+ million documents per month.\n\nKey Contributions:\n\n•\tAchieved 99% payments success rate\n•\tReplaced in-house authentication and support SAML/OIDC and social logins\n•\tReplaced File Storage functionality with zero downtime\n•\tReplaced in-house authentication with robust OSS solution  \n•\tIntroduced mobile payments on iOS and Android\n•\tReduced AWS costs by 20%\n•\tMany DevOps and Security improvements (Terraform, Ansible, ECR, ECS, etc.)",
       "url": "https://www.linkedin.com/company/smallpdf/",
       "location": "Zurich, Switzerland"
     },
