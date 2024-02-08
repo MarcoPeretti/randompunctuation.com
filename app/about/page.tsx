@@ -87,7 +87,6 @@ export default function AboutPage() {
         <ul>
           <li>We can discuss any subject. I often have &lsquo;strong opinions, weakly held&rsquo; and have no problem changing my mind if the reasons and logic are sound.</li>
           <li>I love learning. I enjoy working on complex problems where we can collectively work toward a solution.</li>
-          <li>My priorities are the company I work for, my team(s), myself - in this order.</li>
           <li>I openly admit when I am wrong. I take ownership of my decisions.</li>
           <li>I deeply care about the well-being of the people that work with me.</li>
           <li>I vaue and appreciate feedback.</li>
