@@ -1,4 +1,5 @@
 import ViewCounter from 'app/blog/view-counter';
+
 import {
   getViewsCount,
 } from 'lib/metrics';

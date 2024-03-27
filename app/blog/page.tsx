@@ -1,23 +1,25 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { allBlogs } from 'contentlayer/generated';
 import ViewCounter from './view-counter';
 import { getViewsCount } from 'lib/metrics';
 import { Suspense } from 'react';
+import { getBlogPosts } from 'app/db/blog';
 
 export const metadata: Metadata = {
   title: 'Blog',
   description: 'Thoughts on software development, engineering management, and more.',
 };
 
-export default async function BlogPage() {
+export default function BlogPage() {
+
+  let allBlogs = getBlogPosts();
 
   return (
     <section>
       <h1 className="font-bold text-2xl mb-8 tracking-tighter">Just getting started, content will slowly make its way to this site.</h1>
       {allBlogs
         .sort((a, b) => {
-          if (new Date(a.publishedAt) > new Date(b.publishedAt)) {
+          if (new Date(a.metadata.publishedAt) > new Date(b.metadata.publishedAt)) {
             return -1;
           }
           return 1;
@@ -30,7 +32,7 @@ export default async function BlogPage() {
           >
             <div className="w-full flex flex-col">
               <p className="text-neutral-900 dark:text-neutral-100 tracking-tight">
-                {post.title}
+                {post.metadata.title}
               </p>
               <Suspense fallback={<p className="h-6" />}>
                 <Views slug={post.slug} />

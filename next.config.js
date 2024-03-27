@@ -1,5 +1,4 @@
 const { get } = require('@vercel/edge-config');
-const { withContentlayer } = require('next-contentlayer');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -69,5 +68,3 @@ const securityHeaders = [
     value: 'camera=(), microphone=(), geolocation=()',
   },
 ];
-
-module.exports = withContentlayer(nextConfig);

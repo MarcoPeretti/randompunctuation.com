@@ -1,16 +1,16 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { Mdx } from 'app/components/mdx';
-import { allBlogs } from 'contentlayer/generated';
+import { CustomMDX } from 'app/components/mdx';
 import Balancer from 'react-wrap-balancer';
 import ViewCounter from '../view-counter';
 import { getViewsCount } from 'lib/metrics';
 import { Suspense } from 'react';
+import { getBlogPosts } from 'app/db/blog';
 
 export async function generateMetadata({
   params,
 }): Promise<Metadata | undefined> {
-  const post = allBlogs.find((post) => post.slug === params.slug);
+  let post = getBlogPosts().find((post) => post.slug === params.slug);
   if (!post) {
     return;
   }
@@ -20,8 +20,7 @@ export async function generateMetadata({
     publishedAt: publishedTime,
     summary: description,
     image,
-    slug,
-  } = post;
+  } = post.metadata;
   const ogImage = image
     ? `https://randompunctuation.com${image}`
     : `https://randompunctuation.com/og?title=${title}`;
@@ -35,7 +34,7 @@ export async function generateMetadata({
       description,
       type: 'article',
       publishedTime,
-      url: `https://randompunctuation.com/blog/${slug}`,
+      url: `https://randompunctuation.com/blog/${post.slug}`,
       images: [
         {
           url: ogImage,
@@ -80,8 +79,8 @@ function formatDate(date: string) {
   return `${fullDate} (${formattedDate})`;
 }
 
-export default async function Blog({ params }) {
-  const post = allBlogs.find((post) => post.slug === params.slug);
+export default function Blog({ params }) {
+  const post = getBlogPosts().find((post) => post.slug === params.slug);
 
   if (!post) {
     notFound();
@@ -93,23 +92,40 @@ export default async function Blog({ params }) {
         type="application/ld+json"
         suppressHydrationWarning
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(post.structuredData),
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BlogPosting',
+            headline: post.metadata.title,
+            datePublished: post.metadata.publishedAt,
+            dateModified: post.metadata.publishedAt,
+            description: post.metadata.summary,
+            image: post.metadata.image
+              ? `https://randompunctuation.com${post.metadata.image}`
+              : `https://randompunctuation.com/og?title=${post.metadata.title}`,
+            url: `https://randompunctuation.com/blog/${post.slug}`,
+            author: {
+              '@type': 'Person',
+              name: 'Marco Peretti',
+            },
+          }),
         }}
       ></script>
       <h1 className="font-bold text-2xl tracking-tighter max-w-[650px]">
-        <Balancer>{post.title}</Balancer>
+        <Balancer>{post.metadata.title}</Balancer>
       </h1>
       <div className="flex justify-between items-center mt-2 mb-8 text-sm max-w-[650px]">
         <p className="text-sm text-neutral-600 dark:text-neutral-400">
-          {formatDate(post.publishedAt)}
+          {formatDate(post.metadata.publishedAt)}
         </p>
         {/* I also want an error boundary here */}
         <Suspense>
           <Views slug={post.slug} />
         </Suspense>
       </div>
-      <Mdx code={post.body.code} />
-    </section>
+      <article className="prose prose-quoteless prose-neutral dark:prose-invert">
+        <CustomMDX source={post.content} />
+      </article>    
+      </section>
   );
 }
 
