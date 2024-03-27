@@ -11,6 +11,7 @@
     "@planetscale/database": "^1.11.0",
     "@vercel/analytics": "^1.1.1",
     "@vercel/edge-config": "^0.4.1",
+    "@vercel/speed-insights": "^1.0.10",
     "ai": "^2.2.28",
     "clsx": "^2.0.0",
     "date-fns": "^2.30.0",

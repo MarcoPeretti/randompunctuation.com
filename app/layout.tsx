@@ -4,6 +4,7 @@ import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import Sidebar from './components/sidebar';
 import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const graphik = localFont({
   src: [
@@ -72,6 +73,7 @@ export default function RootLayout({
           <Sidebar />
           {children}
           <Analytics />
+          <SpeedInsights />
         </main>
       </body>
     </html>
