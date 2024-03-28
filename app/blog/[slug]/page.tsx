@@ -118,11 +118,13 @@ export default function Blog({ params }) {
         <Balancer>{post.metadata.title}</Balancer>
       </h1>
       <div className="flex justify-between items-center mt-2 mb-8 text-sm max-w-[650px]">
-        <p className="text-sm text-neutral-600 dark:text-neutral-400">
-          {formatDate(post.metadata.publishedAt)}
-        </p>
-        {/* I also want an error boundary here */}
-        <Suspense>
+
+        <Suspense fallback={<p className="h-5" />}>
+          <p className="text-sm text-neutral-600 dark:text-neutral-400">
+            {formatDate(post.metadata.publishedAt)}
+          </p>
+        </Suspense>
+        <Suspense fallback={<p className="h-5" />}>
           <Views slug={post.slug} />
         </Suspense>
       </div>
