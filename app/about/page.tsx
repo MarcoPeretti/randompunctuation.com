@@ -69,12 +69,6 @@ export default function AboutPage() {
           <li>4 Exits: SecureWave, NeoValens, BeyondTrust, and Avecto.</li>
         </ul>
 
-        <h4>
-        <p className="prose prose-neutral dark:prose-invert">
-          I am approaching the end of my sabbatical and eager to join like-minded people and work on ambitious projects. Feel free to get in touch to discuss potential opportunities.
-        </p>
-        </h4>
-
         <h3 className="mt-8" id="flaws">Flaws</h3>
         Transparency and directness are part of the values I live for. The main flaws are listed below for two main reasons.
         The first one is for people to be aware of them so that they know it's not them but my fault. 
