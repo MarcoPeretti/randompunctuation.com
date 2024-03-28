@@ -2,7 +2,6 @@ import OpenAI from 'openai';
 import { OpenAIStream, StreamingTextResponse } from 'ai';
 import { NextResponse } from 'next/server';
 import cv from 'marco_peretti.resume.json';
-import { savePromptEntry } from 'app/actions';
 
 // Create an OpenAI API client (that's edge friendly!)
 const openai = new OpenAI({
@@ -12,6 +11,7 @@ const openai = new OpenAI({
 const env = process.env.NODE_ENV
 
 // IMPORTANT! Set the runtime to edge
+// https://sdk.vercel.ai/docs/guides/providers/openai
 export const runtime = 'edge';
  
 export async function POST(req: Request) {
@@ -21,15 +21,22 @@ export async function POST(req: Request) {
     const { prompt } = await req.json();
 
     if (env != "development" &&
-    (prompt != "Give me 10 reasons why we should hire him") &&
+    (prompt != "Give me 5 reasons why we should hire him") &&
     (prompt != "How does Marco cope with high-pressure environments?") &&
     (prompt != "Why should our senior team hire Marco?")) {
       
-      await savePromptEntry(prompt);
-    
+      await fetch("https://randompunctuation.com/api/db", {
+        method: "POST",
+        mode: "cors",
+        credentials: "same-origin", 
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(prompt),
+      })
     }
 
-    console.log(prompt);
+    //console.log(prompt);
 
     // Ask OpenAI for a streaming completion given the prompt
     const response = await openai.completions.create({

@@ -9,7 +9,7 @@ The code has been initially cloned from this [template](https://github.com/leero
 Stack:
 
 - **Framework**: [Next.js](https://nextjs.org/)
-- **Database**: [PlanetScale](https://planetscale.com)
+- **Database**: [Postgres](https://vercel.com/postgres)
 - **Authentication**: [NextAuth.js](https://next-auth.js.org)
 - **Deployment**: [Vercel](https://vercel.com)
 - **Styling**: [Tailwind CSS](https://tailwindcss.com)

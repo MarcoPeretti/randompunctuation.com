@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import ViewCounter from './view-counter';
-import { getViewsCount } from 'lib/metrics';
+import { getViewsCount } from 'app/db/queries';
 import { Suspense } from 'react';
 import { getBlogPosts } from 'app/db/blog';
 

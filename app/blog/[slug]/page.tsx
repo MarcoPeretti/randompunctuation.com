@@ -3,9 +3,11 @@ import { notFound } from 'next/navigation';
 import { CustomMDX } from 'app/components/mdx';
 import Balancer from 'react-wrap-balancer';
 import ViewCounter from '../view-counter';
-import { getViewsCount } from 'lib/metrics';
-import { Suspense } from 'react';
+import { getViewsCount } from 'app/db/queries';
+import { Suspense, cache } from 'react';
 import { getBlogPosts } from 'app/db/blog';
+import { increment } from 'app/db/actions';
+import { unstable_noStore as noStore } from 'next/cache';
 
 export async function generateMetadata({
   params,
@@ -51,6 +53,8 @@ export async function generateMetadata({
 }
 
 function formatDate(date: string) {
+  noStore();
+
   const currentDate = new Date();
   const targetDate = new Date(date);
 
@@ -129,10 +133,14 @@ export default function Blog({ params }) {
   );
 }
 
+let incrementViews = cache(increment);
+
 async function Views({ slug }: { slug: string }) {
   let views;
   try {
     views = await getViewsCount();
+    incrementViews(slug);
+
   } catch (error) {
     console.error(error);
   }

@@ -3,6 +3,13 @@ const { get } = require('@vercel/edge-config');
 /** @type {import('next').NextConfig} */
 const nextConfig = {
 
+  webpack: (config, { webpack }) => {
+    config.plugins.push(new webpack.IgnorePlugin({
+        resourceRegExp: /^pg-native$|^cloudflare:sockets$/,
+    }))
+
+    return config
+  },
   redirects() {
     try {
       return get('redirects');

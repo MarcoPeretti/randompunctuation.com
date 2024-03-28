@@ -71,7 +71,7 @@ export default function ProjectsPage() {
             Questions were derived from DevOps Research and Assessment <a href="https://dora.dev/" target="_blank"> (DORA)</a>, The <a href="https://queue.acm.org/detail.cfm?id=3454124" target="_blank"> Space Framework</a>, and other sources.          
           </p>
           <p>
-            <b>Stack: </b>NextJs/React, Typescript, Tailwind CSS, NextAuth.js, Planetscale, SurveyJS, Vercel
+            <b>Stack: </b>NextJs/React, Typescript, Tailwind CSS, NextAuth.js, Postgres, SurveyJS, Vercel
           </p>
 
         <h3 id="source">Source code</h3>

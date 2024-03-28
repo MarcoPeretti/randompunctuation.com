@@ -2,7 +2,7 @@ import ViewCounter from 'app/blog/view-counter';
 
 import {
   getViewsCount,
-} from 'lib/metrics';
+} from 'app/db/queries';
 import { Suspense } from 'react';
 //import Image from 'next/image';
 //import v4 from 'public/images/v4.jpg';
