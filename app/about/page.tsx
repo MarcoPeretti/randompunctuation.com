@@ -5,7 +5,7 @@ import Image from 'next/image';
 export const metadata: Metadata = {
   title: 'About',
   description:
-    "More about myself",
+    "A few words about myself, my flaws, my strengths and how how to work with me. May be useful if you plan on hiring me.",
   keywords:
     "Marco Peretti, Engineering Executive, Scaling Engineering Teams, Engineering Management, Cybersecurity"
 };

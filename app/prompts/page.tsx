@@ -4,7 +4,7 @@ import { Suspense } from 'react';
 
 export const metadata: Metadata = {
   title: 'Prompts',
-  description: 'chatGPT Prompts history.',
+  description: 'chatGPT Prompts history. All queries are logged and can be found on this page. By default, the three sample questions are not logged.',
 };
 
 //export const dynamic = 'force-dynamic';

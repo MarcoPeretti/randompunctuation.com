@@ -29,11 +29,11 @@ export const metadata: Metadata = {
     default: 'Marco Peretti',
     template: '%s | Marco Peretti',
   },
-  description: 'Creator, writer.',
+  description: 'Welcome to my personal blog. I cover different subjects, ranging from engineering management, scaling organisations and, occasionally, Cybersecurity and AI.',
   keywords: 'Engineering Management, Scaling Teams, Best Practices, Hiring',
   openGraph: {
     title: 'Marco Peretti',
-    description: 'Creator, writer.',
+    description: 'Welcome to my personal blog. I cover different subjects, ranging from engineering management, scaling organisations and, occasionally, Cybersecurity and AI.',
     url: 'https://randompunctuation.com',
     siteName: 'Marco Peretti',
     locale: 'en_US',
