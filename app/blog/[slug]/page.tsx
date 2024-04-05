@@ -21,6 +21,7 @@ export async function generateMetadata({
     title,
     publishedAt: publishedTime,
     summary: description,
+    keywords,
     image,
   } = post.metadata;
   const ogImage = image
@@ -30,6 +31,7 @@ export async function generateMetadata({
   return {
     title,
     description,
+    keywords,
     authors: [{name: 'Marco Peretti'}],
     openGraph: {
       title,
@@ -103,6 +105,7 @@ export default function Blog({ params }) {
             datePublished: post.metadata.publishedAt,
             dateModified: post.metadata.publishedAt,
             description: post.metadata.summary,
+            kw: post.metadata.keywords,
             image: post.metadata.image
               ? `https://randompunctuation.com${post.metadata.image}`
               : `https://randompunctuation.com/og?title=${post.metadata.title}`,

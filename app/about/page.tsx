@@ -3,9 +3,11 @@ import v4 from 'public/images/v4-blue-1024.png';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
-  title: 'How to',
+  title: 'About',
   description:
     "More about myself",
+  keywords:
+    "Marco Peretti, Engineering Executive, Scaling Engineering Teams, Engineering Management, Cybersecurity"
 };
 
 function ArrowIcon() {

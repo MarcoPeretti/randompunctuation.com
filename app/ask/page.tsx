@@ -2,7 +2,7 @@
  
 import { useCompletion } from 'ai/react';
 import { useRef } from 'react';
- 
+
 export default function Chat() {
 
   const bioRef = useRef<null | HTMLDivElement>(null);

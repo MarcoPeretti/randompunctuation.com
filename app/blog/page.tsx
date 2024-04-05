@@ -8,6 +8,7 @@ import { getBlogPosts } from 'app/db/blog';
 export const metadata: Metadata = {
   title: 'Blog',
   description: 'Thoughts on software development, engineering management, and more.',
+  keywords: "Engineering Management, Scaling Teams, Cybersecurity, Hiring",
 };
 
 export default function BlogPage() {
