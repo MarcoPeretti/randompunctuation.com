@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Projects',
   description:
-    "Some information about a few Research projects I worked on recently. Working on side projects allows me to learn and keep up to date with (almost) everything that is going on.",
+    "Some information about a few research projects I worked on recently, primarily to learn and keep up to date with (almost) everything that is going on.",
   keywords:
    "Marco Peretti, Ransomware Protection, DORA, Space Framework, Suveys, DevEx, DevOps",
 };
