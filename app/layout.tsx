@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     template: '%s | Marco Peretti',
   },
   description: 'Creator, writer.',
-  keywords: 'Engineering Management, Scaling Teams, Best Practices, Hiring, AWS, Azure, Google',
+  keywords: 'Engineering Management, Scaling Teams, Best Practices, Hiring',
   openGraph: {
     title: 'Marco Peretti',
     description: 'Creator, writer.',

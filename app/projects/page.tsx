@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   description:
     "Research projects",
   keywords:
-   "Marco Peretti, AWS, Azure, Google Cloud, GCP, Ransomware Protection, Web Development, Typescript, DORA, Space Framework",
+   "Marco Peretti, Ransomware Protection, DORA, Space Framework, Suveys, DevEx, DevOps",
 };
 
 export default function ProjectsPage() {
