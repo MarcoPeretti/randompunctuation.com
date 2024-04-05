@@ -105,7 +105,7 @@ export default function Blog({ params }) {
             datePublished: post.metadata.publishedAt,
             dateModified: post.metadata.publishedAt,
             description: post.metadata.summary,
-            kw: post.metadata.keywords,
+            keyword: post.metadata.keywords,
             image: post.metadata.image
               ? `https://randompunctuation.com${post.metadata.image}`
               : `https://randompunctuation.com/og?title=${post.metadata.title}`,
