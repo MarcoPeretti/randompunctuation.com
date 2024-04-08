@@ -55,7 +55,15 @@ export default function AboutPage() {
 
         <div className="px-4 py-3 border border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 rounded p-1 text-sm flex items-center text-neutral-900 dark:text-neutral-100 mb-8">
           <div className="flex items-center w-4 mr-4">💡</div>
-          <div className="w-full callout">I am approaching the end of my sabbatical and eager to join like-minded people and work on ambitious projects. Feel free to get in touch to discuss potential opportunities.</div>
+          <div className="w-full callout">I am approaching the end of my sabbatical and eager to join like-minded people and work on ambitious projects. I am ideally looking for full-time positions but am currently also available for short-term consulting missions:
+
+          <ul>
+            <li>Fractional CTO or mentoring roles</li>
+            <li>Scaling Engineering Teams</li>
+            <li>Artifical Intelligence and implications for business strategies</li>
+        </ul>
+          
+          Feel free to get in touch to discuss potential opportunities.</div>
       </div>
 
         <h3 id="bio">Super Short Bio</h3>
@@ -78,7 +86,7 @@ export default function AboutPage() {
 
         <ul>
           <li>In meetings I may look serious. This is usually because I am usually very focused and paying attention, often in a foreign language. It is OK to remind me to &lsquo;smile more&rsquo; .</li>
-          <li>I may sometimes struggle to patiently listen and will propose a &lsquo;solution&rsquo;. This is usually because I am either in a rush or just happen to have an idea.</li>
+          <li>I may sometimes struggle to patiently listen until the end and will propose a &lsquo;solution&rsquo;. I am problem solver by nature, and sometimes can act instinctively. </li>
           <li>I don't particularly enjoy <em>lengthy</em> discussions on topics I happen to have invested a considerable amount of time researcing with people that have <em>strong opinions</em>, but cannot be bothered to invest time to also learn at least the basics of the subject being discussed.</li>
           <li>I sometimes answer email/messages after working-hours or on weekends. </li>
          </ul>
