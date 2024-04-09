@@ -5,7 +5,7 @@ import localFont from 'next/font/local';
 import Sidebar from './components/sidebar';
 import { SpeedInsights } from "@vercel/speed-insights/next"
 
-import { GoogleAnalytics } from '@next/third-parties/google'
+import MicrosoftClarity from "./metrics/MicrosoftClarity"
 
 const graphik = localFont({
   src: [
@@ -74,7 +74,7 @@ export default function RootLayout({
         <main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0">
           <Sidebar />
           {children}
-          <GoogleAnalytics gaId= {process.env.GOOGLE_ANALYTICS as string} />
+          <MicrosoftClarity/>
           <SpeedInsights />
         </main>
       </body>
