@@ -3,8 +3,9 @@ import clsx from 'clsx';
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import Sidebar from './components/sidebar';
-import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from "@vercel/speed-insights/next"
+
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 const graphik = localFont({
   src: [
@@ -73,7 +74,7 @@ export default function RootLayout({
         <main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0">
           <Sidebar />
           {children}
-          <Analytics />
+          <GoogleAnalytics gaId= {process.env.GOOGLE_ANALYTICS as string} />
           <SpeedInsights />
         </main>
       </body>
