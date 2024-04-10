@@ -17,7 +17,7 @@ export default function BlogPage() {
 
   return (
     <section>
-      <h1 className="font-bold text-2xl mb-8 tracking-tighter">Just getting started, content will slowly make its way to this site.</h1>
+      <h1 className="font-bold text-2xl mb-8 tracking-tighter">My humble blog.</h1>
       {allBlogs
         .sort((a, b) => {
           if (new Date(a.metadata.publishedAt) > new Date(b.metadata.publishedAt)) {
