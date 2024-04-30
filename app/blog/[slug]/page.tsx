@@ -8,6 +8,7 @@ import { Suspense, cache } from 'react';
 import { getBlogPosts } from 'app/db/blog';
 import { increment } from 'app/db/actions';
 import { unstable_noStore as noStore } from 'next/cache';
+import Socials from 'app/components/socials' 
 
 export async function generateMetadata({
   params,
@@ -134,6 +135,7 @@ export default function Blog({ params }) {
       <article className="prose prose-quoteless prose-neutral dark:prose-invert">
         <CustomMDX source={post.content} />
       </article>    
+      <Socials/>
       </section>
   );
 }

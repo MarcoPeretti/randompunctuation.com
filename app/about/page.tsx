@@ -36,7 +36,7 @@ export default function AboutPage() {
       <div className="prose prose-neutral dark:prose-invert">
 
         <p>
-          Brief background about myself. My work history can be found <Link href="/work">here</Link>
+          Brief background about myself. A brief summary of my professional accomplishments can be found <Link href="/work">here</Link>
         </p>
 
         <div className="px-4 py-3 border border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 rounded p-1 text-sm flex items-center text-neutral-900 dark:text-neutral-100 mb-8">
@@ -58,7 +58,7 @@ export default function AboutPage() {
             He was right, and the name stuck.
           </p>
           <p>
-            English is not my mother tongue and I am also dyslexic. Writing well is indeed a challenge despite the availability of spelling and grammar checkers. 
+            English is not my mother tongue and I am also a littlb eit dyslexic (that's a joke, btw). Writing well is indeed a challenge despite the availability of spelling and grammar checkers. 
             I was told that the best way to improve is to write, and therefore this blog.
             Feedback is welcome.  
           </p>

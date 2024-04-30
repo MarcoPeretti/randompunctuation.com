@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Socials from 'app/components/socials' 
 
 export const metadata: Metadata = {
   title: 'Projects',
@@ -81,6 +82,8 @@ export default function ProjectsPage() {
             I rarely release source code as I don’t really plan to maintain these projects and, to be honest, the quality of the code is often so-so. They are useful to me to experiment and learn new concepts.  
           </p>
         </div>
+
+        <Socials/>
 
     </section>
       );
