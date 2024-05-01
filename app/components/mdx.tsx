@@ -58,6 +58,15 @@ function Callout(props) {
   );
 }
 
+function TableDescription(props) {
+  return (
+    <div>
+      <div className="flex items-center w-4 mr-4">{props.emoji}</div>
+      <div className="w-full text-center tabledescription">{props.children}</div>
+      </div>
+  );
+}
+
 function ProsCard({ title, pros }) {
   return (
     <div className="border border-emerald-200 dark:border-emerald-900 bg-neutral-50 dark:bg-neutral-900 rounded-xl p-6 my-4 w-full">
@@ -156,6 +165,7 @@ let components = {
   Image: RoundedImage,
   a: CustomLink,
   Callout,
+  TableDescription,
   ProsCard,
   ConsCard,
   code: Code,
