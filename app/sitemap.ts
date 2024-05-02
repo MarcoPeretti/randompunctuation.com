@@ -1,4 +1,4 @@
-import { getBlogPosts } from 'app/db/blog';
+import { getBlogPosts, getNotes } from 'app/db/blog';
 
 export default async function sitemap() {
   const blogs = getBlogPosts().map((post) => ({
@@ -6,12 +6,17 @@ export default async function sitemap() {
     lastModified: post.metadata.publishedAt,
   }));
 
-  const routes = ['', '/blog', '/about', '/projects', '/work'].map(
+  const notes = getNotes().map((post) => ({
+    url: `https://randompunctuation.com/notes/${post.slug}`,
+    lastModified: post.metadata.publishedAt,
+  }));
+
+  const routes = ['', '/blog', '/notes', '/about', '/projects', '/work'].map(
     (route) => ({
       url: `https://randompunctuation.com${route}`,
       lastModified: new Date().toISOString().split('T')[0],
     })
   );
 
-  return [...routes, ...blogs];
+  return [...routes, ...blogs, ...notes];
 }
