@@ -50,7 +50,7 @@ export default function Chat() {
         <option value="Why should our senior team hire Marco?">Why should our senior team hire Marco?</option>
       </select>
       
-      <div className="prose prose-bold dark:prose-invert dark:text-black">
+      <div className="prose prose-bold dark:prose-invert dark:text-white">
 
       <form onSubmit={handleSubmit}>
         <input
