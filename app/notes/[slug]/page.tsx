@@ -106,7 +106,7 @@ export default function Note({ params }) {
             datePublished: note.metadata.publishedAt,
             dateModified: note.metadata.publishedAt,
             description: note.metadata.summary,
-            keyword: note.metadata.keywords,
+            keywords: note.metadata.keywords,
             image: note.metadata.image
               ? `https://randompunctuation.com${note.metadata.image}`
               : `https://randompunctuation.com/og?title=${note.metadata.title}`,
