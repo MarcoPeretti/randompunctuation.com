@@ -50,7 +50,7 @@ export default async function Page() {
     <section>
       <h1 className="font-bold text-2xl mb-8 tracking-tighter">Hey, I'm Marco 👋</h1>
       <p className="prose prose-neutral dark:prose-invert">
-        I am former company Founder, CTO and VP of Engineering, currently residing in Lausanne, Switzerland.
+        I am former company Founder, CTO / VP of Engineering, currently residing in Lausanne, Switzerland.
       </p>
       <br></br>
       <p className="prose prose-neutral dark:prose-invert">
