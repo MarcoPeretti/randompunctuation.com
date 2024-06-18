@@ -4,6 +4,7 @@ import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import Sidebar from './components/sidebar';
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Analytics } from '@vercel/analytics/react';
 
 import MicrosoftClarity from "./metrics/MicrosoftClarity"
 
@@ -75,6 +76,7 @@ export default function RootLayout({
           <Sidebar />
           {children}
           <MicrosoftClarity/>
+          <Analytics />
           <SpeedInsights />
         </main>
       </body>
