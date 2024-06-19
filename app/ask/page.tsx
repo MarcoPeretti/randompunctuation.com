@@ -34,7 +34,7 @@ export default function Chat() {
       <div className="relative inline-block text-left">
  
       <h4 className="text-xl font-bold text-900 md:text-xl pb-4">
-        Ask chatGPT questions about my resume:
+        Ask Morpheus questions about my resume:
       </h4>
       {error && (
         <div className="fixed top-0 left-0 w-full p-4 text-center bg-red-500 text-white">
