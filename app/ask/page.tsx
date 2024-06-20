@@ -2,6 +2,10 @@
  
 import { useCompletion } from 'ai/react';
 import { useRef } from 'react';
+import oracle from 'public/images/oracle1.jpg';
+import Image from 'next/image';
+import Link from 'next/link'
+
 
 export default function Chat() {
 
@@ -31,10 +35,32 @@ export default function Chat() {
    
   return (
     <div className="flex flex-col w-full max-w-md py-6 mx-auto stretch">
+
+    <div className="columns-1 sm:columns-1 gap-4 my-4">
+        <div className="relative w-full aspect-video mb-4">
+          <Image
+            alt="Morpheus"
+            src={oracle}
+            fill
+            sizes="(max-width: 588px) 100vw"
+            priority
+            className="rounded-lg object-cover"
+          />
+        </div>
+      </div>
+
       <div className="relative inline-block text-left">
  
       <h4 className="text-xl font-bold text-900 md:text-xl pb-4">
-        Ask Morpheus questions about my resume:
+        Ask The Oracle questions about my resume
+
+        <a
+        href="/docs/MarcoPeretti.pdf"
+        alt="cv"
+        target="_blank"
+        rel="noopener noreferrer"
+      >, or click here for pdf</a>
+
       </h4>
       {error && (
         <div className="fixed top-0 left-0 w-full p-4 text-center bg-red-500 text-white">
