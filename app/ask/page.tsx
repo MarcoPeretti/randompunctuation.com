@@ -4,7 +4,6 @@ import { useCompletion } from 'ai/react';
 import { useRef } from 'react';
 import oracle from 'public/images/oracle1.jpg';
 import Image from 'next/image';
-import Link from 'next/link'
 
 
 export default function Chat() {
@@ -56,7 +55,6 @@ export default function Chat() {
 
         <a
         href="/docs/MarcoPeretti.pdf"
-        alt="cv"
         target="_blank"
         rel="noopener noreferrer"
       >, or click here for pdf</a>

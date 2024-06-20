@@ -1,4 +1,5 @@
 import ViewCounter from 'app/blog/view-counter';
+import Link from 'next/link'
 
 import {
   getViewsCount,
@@ -55,7 +56,9 @@ export default async function Page() {
       <br></br>
       <p className="prose prose-neutral dark:prose-invert">
         This is my new blog, where I plan to publish content on software development, scaling engineering organisations as well as sharing some notes about books I've read.
+        If curios, you can ask always <Link href="/ask">The Oracle</Link>
       </p>
+
       <br></br>
 
       <div className="prose prose-neutral dark:prose-invert">
