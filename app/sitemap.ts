@@ -11,7 +11,7 @@ export default async function sitemap() {
     lastModified: post.metadata.publishedAt,
   }));
 
-  const routes = ['', '/blog', '/notes', '/about', '/projects', '/work'].map(
+  const routes = ['', '/blog', '/notes', '/about', '/projects', '/ask', '/work'].map(
     (route) => ({
       url: `https://randompunctuation.com${route}`,
       lastModified: new Date().toISOString().split('T')[0],
