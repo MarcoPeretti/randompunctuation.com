@@ -6,18 +6,27 @@ import oracle from 'public/images/oracle1.jpg';
 import Image from 'next/image';
 import {samplePrompts} from 'lib/prompts'
 
-
 export default function Chat() {
 
   const bioRef = useRef<null | HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const formRef = useRef<HTMLFormElement>(null);
 
   function onChange(e) {
+    
+    //console.log(e);
     handleInputChange(e);
 
     if (inputRef.current) {
       inputRef.current.focus(); // Set focus to the input field
-    }
+
+      if (formRef) {
+
+        // bug - previous value instead of current
+        //formRef.current.requestSubmit();
+      }
+    }  
+
   }
 
   const scrollToBios = () => {
@@ -77,7 +86,7 @@ export default function Chat() {
       
       <div className="prose prose-bold dark:prose-invert dark:text-white">
 
-      <form onSubmit={handleSubmit}>
+      <form ref={formRef} onSubmit={handleSubmit}>
         <input
           ref={inputRef}
           id="prompt"

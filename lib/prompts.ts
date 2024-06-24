@@ -6,6 +6,6 @@ export const samplePrompts: string[] = [
     "Tell me about his qualifications",
     "Tell me about his Cybersecuyrity skills",
     "What programming languages is he familiar with?",
-    "What makes him standout from other candidates?"
+    "What makes him stand out from other candidates?"
 ];
 
