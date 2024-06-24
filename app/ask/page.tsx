@@ -57,7 +57,7 @@ export default function Chat() {
         href="/docs/MarcoPeretti.pdf"
         target="_blank"
         rel="noopener noreferrer"
-      >, or click here for pdf</a>
+      >, or click here for pdf</a>. It's 2024, and The Oracle uses ChatGPT.
 
       </h4>
       {error && (
