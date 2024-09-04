@@ -8,6 +8,7 @@
     "setup": "node ./lib/setup.mjs"
   },
   "dependencies": {
+    "@next/third-parties": "^14.2.7",
     "@vercel/analytics": "^1.1.1",
     "@vercel/edge-config": "^0.4.1",
     "@vercel/speed-insights": "^1.0.10",
