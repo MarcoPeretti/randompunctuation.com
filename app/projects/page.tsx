@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Socials from 'app/components/socials' 
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Projects',
@@ -31,7 +32,7 @@ export default function ProjectsPage() {
         <h3 id="uacguard">DLLs side-loading and local privilege escalation protection</h3>
         
           I wrote a Windows Kernel Driver to restrict Microsoft inbox executables to only load Microsoft signed DLLs and extended it to block a good number of known UAC exploits.  More information&nbsp;  
-        <a href="https://uacguard.com/about" target="_blank"> here.</a>
+          <Link href="/uacguard"> here</Link>
    
         <h3 id="crash">Crash Analysis as a Service</h3>
 
