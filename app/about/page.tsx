@@ -38,20 +38,7 @@ export default function AboutPage() {
         <p>
           Brief background about myself. A brief summary of my professional accomplishments can be found <Link href="/work">here</Link>
         </p>
-
-        <div className="px-4 py-3 border border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 rounded p-1 text-sm flex items-center text-neutral-900 dark:text-neutral-100 mb-8">
-          <div className="flex items-center w-4 mr-4">💡</div>
-          <div className="w-full callout">I am approaching the end of my sabbatical and eager to join like-minded people and work on ambitious projects. I am ideally looking for full-time positions but am currently also available for short-term consulting missions:
-
-          <ul>
-            <li>Fractional CTO or mentoring roles</li>
-            <li>Scaling Engineering Teams</li>
-            <li>Artifical Intelligence and implications for business strategies</li>
-        </ul>
-          
-          Feel free to get in touch to discuss potential opportunities.</div>
-      </div>
-
+        
          <h3 className="mt-8" id="name">Random Punctuation</h3>
           <p>
             The name <b>randompunctuation.com</b> comes from a comment a former colleague made many years ago while reviewing an article I wrote. He basically told me that it seemed I randomly added punctuation marks and it made the text harder to read. 

@@ -12,19 +12,6 @@ export default async function Page() {
           Brief summary of my main professional accomplishments and what to expect working with me. 
         </p>
 
-        <div className="px-4 py-3 border border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 rounded p-1 text-sm flex items-center text-neutral-900 dark:text-neutral-100 mb-8">
-          <div className="flex items-center w-4 mr-4">💡</div>
-          <div className="w-full callout">I am approaching the end of my sabbatical and eager to join like-minded people and work on ambitious projects. I am ideally looking for full-time positions but am currently also available for short-term consulting missions:
-
-          <ul>
-            <li>Fractional CTO or mentoring roles</li>
-            <li>Scaling Engineering Teams</li>
-            <li>Artifical Intelligence and implications for business strategies</li>
-        </ul>
-          
-          Feel free to get in touch to discuss potential opportunities.</div>
-      </div>
-
       <h3 id="bio">Super Short Bio</h3>
         Held Executive, Engineering and Product Management roles in fast-growing companies, often during hyper-growth phases. Led multicultural and distributed development teams and shipped successful products, deployed to millions of endpoints, or serving many tens of millions of users (SaaS).
         
