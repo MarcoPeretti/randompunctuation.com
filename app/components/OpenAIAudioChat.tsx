@@ -19,7 +19,6 @@ const OpenAIAudioChat = ({ token, voice = 'alloy' }) => {
   //const encodedPrompt = encodeURIComponent(`You are a helpful assistant who is tasked to answer questions about my resume as if you were The Oracle from The Matrix movie sharing her wisdom. Answer using the third person form and refer to him either as Marco or he and limit the answer to about 150 words. Base your answers on my resume and do your very best to answer any question. Resume: ${JSON.stringify(cv)}. If the answer cannot be found in the resume, write "Sorry, cannot not answer that question."`);
   const encodedPrompt = encodeURIComponent(`You are a helpful assistant who is tasked to answer questions as if you were The Oracle from The Matrix movie sharing her wisdom.`);
 
-  console.log("token", token);
   const createRealtimeSession = async (inStream, token, voice) => {
     const pc = new RTCPeerConnection();
     
