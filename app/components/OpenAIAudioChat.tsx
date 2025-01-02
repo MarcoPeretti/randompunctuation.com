@@ -4,10 +4,10 @@ import cv from 'marco_peretti.resume.json';
 
 const OpenAIAudioChat = ({ token, voice = 'alloy' }) => {
   const [isActive, setIsActive] = useState(false);
-  const peerConnectionRef = useRef(null);
-  const audioContextRef = useRef(null);
-  const audioStreamRef = useRef(null);
-  const dataConnectionRef = useRef(null);
+  const peerConnectionRef = useRef<RTCPeerConnection | null>(null);
+  const audioContextRef = useRef<AudioContext | null>(null);
+  const audioStreamRef = useRef<MediaStream | null>(null);
+  const dataConnectionRef = useRef<RTCDataChannel | null>(null);
 
   /*
 
