@@ -3,11 +3,13 @@ import React, { useState, useRef, useEffect } from 'react';
 import cv from 'marco_peretti.resume.json';
 
 const OpenAIAudioChat = ({ token, voice = 'alloy' }) => {
-  const [isActive, setIsActive] = useState(false);
+  const [isSessionActive, setIsSessionActive] = useState(false);
   const peerConnectionRef = useRef<RTCPeerConnection | null>(null);
   const audioContextRef = useRef<AudioContext | null>(null);
   const audioStreamRef = useRef<MediaStream | null>(null);
   const dataConnectionRef = useRef<RTCDataChannel | null>(null);
+  const audioIndicatorRef = useRef(null);
+
 
   /*
 
@@ -18,7 +20,7 @@ const OpenAIAudioChat = ({ token, voice = 'alloy' }) => {
   //const encodedPrompt = encodeURIComponent(`You are a helpful assistant who is tasked to answer questions about my resume as if you were The Oracle from The Matrix movie sharing her wisdom. Answer using the third person form and refer to him either as Marco or he and limit the answer to about 150 words. Base your answers on my resume and do your very best to answer any question. Resume: ${JSON.stringify(cv)}. If the answer cannot be found in the resume, write "Sorry, cannot not answer that question."`);
   const encodedPrompt = encodeURIComponent(`You are a helpful assistant who is tasked to answer questions as if you were The Oracle from The Matrix movie sharing her wisdom.`);
 
-
+  console.log("token", token);
   const createRealtimeSession = async (inStream, token, voice) => {
     const pc = new RTCPeerConnection();
     
@@ -98,6 +100,34 @@ const OpenAIAudioChat = ({ token, voice = 'alloy' }) => {
     return pc;
   };
 
+
+  const setupAudioVisualization = (stream) => {
+    const audioContext = new AudioContext();
+    const source = audioContext.createMediaStreamSource(stream);
+    const analyzer = audioContext.createAnalyser();
+    analyzer.fftSize = 256;
+    
+    source.connect(analyzer);
+    
+    const bufferLength = analyzer.frequencyBinCount;
+    const dataArray = new Uint8Array(bufferLength);
+    
+    function updateIndicator() {
+      if (!audioContext) return;
+      
+      analyzer.getByteFrequencyData(dataArray);
+      const average = dataArray.reduce((a, b) => a + b) / bufferLength;
+      
+      if (audioIndicatorRef.current) {
+        audioIndicatorRef.current.classList.toggle('active', average > 30);
+      }
+      requestAnimationFrame(updateIndicator);
+    }
+    
+    updateIndicator();
+    return audioContext;
+  };
+  
   const startSession = async () => {
     try {
       const stream = await navigator.mediaDevices.getUserMedia({
@@ -105,8 +135,10 @@ const OpenAIAudioChat = ({ token, voice = 'alloy' }) => {
         video: false
       });
       
+
       audioStreamRef.current = stream;
-            
+      audioContextRef.current = setupAudioVisualization(stream);
+
       const pc = await createRealtimeSession(
         stream,
         token,
@@ -115,9 +147,7 @@ const OpenAIAudioChat = ({ token, voice = 'alloy' }) => {
       
     
       peerConnectionRef.current = pc;
-      setIsActive(true);
-
-      
+      setIsSessionActive(true);
       
     } catch (err) {
       console.error('Session error:', err);
@@ -146,17 +176,48 @@ const OpenAIAudioChat = ({ token, voice = 'alloy' }) => {
       dataConnectionRef.current = null;
     }
     
-    setIsActive(false);
+    setIsSessionActive(false);
   };
 
   return (
-    <div className="p-4">
-      <button
-        onClick={isActive ? stopSession : startSession}
-        className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-      >
-        {isActive ? 'Stop Audio Chat' : 'Start Audio Chat'}
-      </button>
+<div className="max-w-2xl mx-auto p-4">
+      <div className="mb-6">
+        <h1 className="text-2xl font-bold flex items-center gap-2">
+          <span 
+            ref={audioIndicatorRef}
+            className="inline-block w-5 h-5 rounded-full bg-gray-300"
+          />
+          OpenAI Audio Chat
+        </h1>
+      </div>
+
+      <div className="space-y-4">
+        <button
+          onClick={isSessionActive ? stopSession : startSession}
+          className={`w-full px-4 py-2 rounded-md text-white font-medium transition-colors
+            ${isSessionActive 
+              ? 'bg-red-500 hover:bg-red-600 active:bg-red-700' 
+              : 'bg-blue-500 hover:bg-blue-600 active:bg-blue-700'
+            }`}
+        >
+          {isSessionActive ? 'End Conversation' : 'Start Conversation'}
+        </button>
+
+  
+      </div>
+
+      <style jsx>{`
+        @keyframes pulse {
+          0% { opacity: 1; }
+          50% { opacity: 0.5; }
+          100% { opacity: 1; }
+        }
+        
+        .active {
+          background: #4CAF50 !important;
+          animation: pulse 1s infinite;
+        }
+      `}</style>
     </div>
   );
 };

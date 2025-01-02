@@ -26,9 +26,6 @@ const navItems = {
   '/ask': {
     name: 'Ask',
   },
-  '/prompts': {
-    name: 'Prompts',
-  },
 };
 
 export default function Navbar() {
