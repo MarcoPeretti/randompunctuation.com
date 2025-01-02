@@ -8,8 +8,7 @@ const OpenAIAudioChat = ({ token, voice = 'alloy' }) => {
   const audioContextRef = useRef<AudioContext | null>(null);
   const audioStreamRef = useRef<MediaStream | null>(null);
   const dataConnectionRef = useRef<RTCDataChannel | null>(null);
-  const audioIndicatorRef = useRef(null);
-
+  const audioIndicatorRef = useRef<HTMLSpanElement | null>(null);
 
   /*
 
