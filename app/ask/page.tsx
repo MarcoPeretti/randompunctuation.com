@@ -1,16 +1,38 @@
 'use client';
  
 import { useCompletion } from 'ai/react';
-import { useRef } from 'react';
+import { useRef, useState, useEffect, Suspense } from 'react';
 import oracle from 'public/images/oracle1.jpg';
 import Image from 'next/image';
 import {samplePrompts} from 'lib/prompts'
+import OpenAIAudioChat from '../components/OpenAIAudioChat';
+import {SessionResponse} from 'lib/interfaces'
+
 
 export default function Chat() {
 
   const bioRef = useRef<null | HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const formRef = useRef<HTMLFormElement>(null);
+
+  const [data, setData] = useState<SessionResponse>( {
+    client_secret: {
+      value: '',
+      expires_at: 0
+    }
+  })
+
+  const [isFetching, setFetching] = useState(true) 
+
+  useEffect(() => {
+    const fetchMessage = async () => {
+      const res = await fetch('/api/oai');
+      const data = await res.json();
+      //console.log ("data", data.data);
+      setData(data.data);
+    };
+    fetchMessage();
+  }, []); // Empty dependency array ensures this runs only once
 
   function onChange(e) {
     
@@ -42,8 +64,16 @@ export default function Chat() {
       },
     });
    
+    if (data.client_secret.expires_at == 0) return <div>Loading...</div>
+
   return (
     <div className="flex flex-col w-full max-w-md py-6 mx-auto stretch">
+      <div className="container mx-auto py-8">
+        <OpenAIAudioChat 
+          token={data.client_secret.value}
+          voice="alloy" 
+      />
+      </div>
 
     <div className="columns-1 sm:columns-1 gap-4 my-4">
         <div className="relative w-full aspect-video mb-4">
@@ -59,7 +89,7 @@ export default function Chat() {
       </div>
 
       <div className="relative inline-block text-left">
- 
+
       <h4 className="text-xl font-bold text-900 md:text-xl pb-4">
         Ask The Oracle questions about my resume
 
