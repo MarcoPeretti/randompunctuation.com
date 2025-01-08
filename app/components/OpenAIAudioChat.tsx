@@ -5,7 +5,7 @@ const OpenAIAudioChat = ({ token, voice = 'alloy' }) => {
   const [isSessionActive, setIsSessionActive] = useState(false);
   const [dataChannel, setDataChannel] = useState<RTCDataChannel | null>(null);
   const peerConnectionRef = useRef(null);
-  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const audioRef = useRef<HTMLAudioElement>(new Audio());
   const audioContextRef = useRef(null);
   const audioIndicatorRef = useRef<HTMLSpanElement | null>(null);
 
