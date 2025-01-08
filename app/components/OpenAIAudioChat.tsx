@@ -13,10 +13,9 @@ const OpenAIAudioChat = ({ token, voice = 'alloy' }) => {
   /*
 
   instuctions are not the same as the prompt. the instructions are succint
-  and tey influcence how the model wil answer the prompt.
+  and they influcence how the model answer< the prompt.
 
   */
-  //const encodedPrompt = encodeURIComponent(`You are a helpful assistant who is tasked to answer questions about my resume as if you were The Oracle from The Matrix movie sharing her wisdom. Answer using the third person form and refer to him either as Marco or he and limit the answer to about 150 words. Base your answers on my resume and do your very best to answer any question. Resume: ${JSON.stringify(cv)}. If the answer cannot be found in the resume, write "Sorry, cannot not answer that question."`);
   const encodedPrompt = encodeURIComponent(`You are a helpful assistant who is tasked to answer questions as if you were The Oracle from The Matrix movie sharing her wisdom.`);
 
   const createRealtimeSession = async (inStream, token, voice) => {
@@ -40,7 +39,7 @@ const OpenAIAudioChat = ({ token, voice = 'alloy' }) => {
         content: [
           {
             type: "input_text",
-            text: "Great the user with the exact message: Hello, I am the Oracle and and I am here to answer your questions about Marco.",
+            text: "Greet the user with the exact message: Hello, I am the Oracle and and I am here to answer your questions about Marco.",
           }
         ]
       },

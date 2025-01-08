@@ -25,10 +25,8 @@ export async function GET() {
       }
   
       const data = await response.json()
-      //const data = await response.json() as SessionResponse
-      //const clientSecret = data.client_secret.value
 
-      //console.log(clientSecret);
+      //console.log(data.id);
       return NextResponse.json({ data })  
 
     } catch (error) {
