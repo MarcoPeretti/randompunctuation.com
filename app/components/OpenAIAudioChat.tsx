@@ -25,6 +25,10 @@ const OpenAIAudioChat = ({ token, voice = 'alloy' }) => {
 
     const pc = new RTCPeerConnection({iceServers});
 
+    pc.oniceconnectionstatechange = () => {
+      console.log('ICE State:', pc.iceConnectionState);
+  };
+
     // Handle ICE candidates
     pc.onicecandidate = event => {
       if (event.candidate) {
