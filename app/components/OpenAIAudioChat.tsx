@@ -4,9 +4,8 @@ import cv from 'marco_peretti.resume.json';
 const OpenAIAudioChat = ({ token, voice = 'alloy' }) => {
   const [isSessionActive, setIsSessionActive] = useState(false);
   const [dataChannel, setDataChannel] = useState<RTCDataChannel | null>(null);
-  const peerConnectionRef = useRef(null);
+  const peerConnectionRef = useRef<RTCPeerConnection | null>(null);
   const audioRef = useRef<HTMLAudioElement>(new Audio());
-  const audioContextRef = useRef(null);
   const audioIndicatorRef = useRef<HTMLSpanElement | null>(null);
 
   const createRealtimeSession = async (stream) => {
@@ -42,9 +41,8 @@ const OpenAIAudioChat = ({ token, voice = 'alloy' }) => {
     };
 
     dc.onmessage = (event) => {
-      const message = JSON.parse(event.data);
-      // Handle incoming messages
-     // console.log('Received message:', message);
+       const message = JSON.parse(event.data);
+       console.log('Received message:', message);
     };
 
     dc.onerror = (error) => {
@@ -116,11 +114,6 @@ const OpenAIAudioChat = ({ token, voice = 'alloy' }) => {
     if (peerConnectionRef.current) {
       peerConnectionRef.current.close();
       peerConnectionRef.current = null;
-    }
-
-    if (audioContextRef.current) {
-      audioContextRef.current.close();
-      audioContextRef.current = null;
     }
 
     if (audioRef.current) {
