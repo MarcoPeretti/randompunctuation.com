@@ -9,24 +9,33 @@ const OpenAIAudioChat = ({ token, voice = 'alloy' }) => {
   const audioIndicatorRef = useRef<HTMLSpanElement | null>(null);
 
   const createRealtimeSession = async (stream) => {
-    const pc = new RTCPeerConnection({
-      iceServers: [{ urls: 'stun:stun.l.google.com:19302' }]
-    });
+    const pc = new RTCPeerConnection();
 
     // Handle ICE candidates
     pc.onicecandidate = event => {
       if (event.candidate) {
         // Handle ICE candidate if needed
+        //console.log('ICE Event ', event.candidate);
       }
     };
 
     // Set up audio
+    /*
     audioRef.current = new Audio();
     pc.ontrack = e => {
       audioRef.current.srcObject = e.streams[0];
       audioRef.current.autoplay = true;
     };
 
+    // Add local audio track
+    pc.addTrack(stream.getTracks()[0], stream);
+    */
+
+     // Set up to play remote audio from the model
+     audioRef.current = document.createElement("audio");
+     audioRef.current.autoplay = true;
+     pc.ontrack = (e) => (audioRef.current.srcObject = e.streams[0]);
+ 
     // Add local audio track
     pc.addTrack(stream.getTracks()[0], stream);
 
@@ -42,7 +51,7 @@ const OpenAIAudioChat = ({ token, voice = 'alloy' }) => {
 
     dc.onmessage = (event) => {
        const message = JSON.parse(event.data);
-       console.log('Received message:', message);
+       //console.log('Received message:', message);
     };
 
     dc.onerror = (error) => {
@@ -55,9 +64,16 @@ const OpenAIAudioChat = ({ token, voice = 'alloy' }) => {
       const offer = await pc.createOffer();
       await pc.setLocalDescription(offer);
 
+      const baseUrl = "https://api.openai.com/v1/realtime";
+      const model = "gpt-4o-realtime-preview-2024-12-17";
+
+      /*
       const resp = await fetch(
         `https://api.openai.com/v1/realtime?model=gpt-4o-realtime-preview-2024-12-17&voice=${voice}`,
         {
+      */
+      const resp = await fetch(`${baseUrl}?model=${model}`, {
+
           method: 'POST',
           body: offer.sdp,
           headers: {
