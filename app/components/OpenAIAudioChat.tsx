@@ -1,3 +1,5 @@
+'use client'
+
 import React, { useState, useRef, useEffect } from 'react';
 import cv from 'marco_peretti.resume.json';
 
@@ -33,7 +35,7 @@ const OpenAIAudioChat = ({ token, voice = 'alloy' }) => {
     pc.onicecandidate = event => {
       if (event.candidate) {
         // Handle ICE candidate if needed
-        //console.log('ICE Event ', event.candidate);
+        console.log('ICE Event ', event.candidate);
       }
     };
 
