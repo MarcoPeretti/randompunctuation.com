@@ -1,6 +1,19 @@
 import React, { useState, useRef, useEffect } from 'react';
 import cv from 'marco_peretti.resume.json';
 
+const iceServers = [
+  { urls: "stun:stun.l.google.com:19302" },
+  { urls: "stun:stun.l.google.com:5349" },
+  { urls: "stun:stun1.l.google.com:3478" },
+  { urls: "stun:stun1.l.google.com:5349" },
+  { urls: "stun:stun2.l.google.com:19302" },
+  { urls: "stun:stun2.l.google.com:5349" },
+  { urls: "stun:stun3.l.google.com:3478" },
+  { urls: "stun:stun3.l.google.com:5349" },
+  { urls: "stun:stun4.l.google.com:19302" },
+  { urls: "stun:stun4.l.google.com:5349" }
+];
+
 const OpenAIAudioChat = ({ token, voice = 'alloy' }) => {
   const [isSessionActive, setIsSessionActive] = useState(false);
   const [dataChannel, setDataChannel] = useState<RTCDataChannel | null>(null);
@@ -9,7 +22,8 @@ const OpenAIAudioChat = ({ token, voice = 'alloy' }) => {
   const audioIndicatorRef = useRef<HTMLSpanElement | null>(null);
 
   const createRealtimeSession = async (stream) => {
-    const pc = new RTCPeerConnection();
+
+    const pc = new RTCPeerConnection({iceServers});
 
     // Handle ICE candidates
     pc.onicecandidate = event => {
