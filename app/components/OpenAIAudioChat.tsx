@@ -1,106 +1,141 @@
 import React, { useState, useRef, useEffect } from 'react';
-
 import cv from 'marco_peretti.resume.json';
 
 const OpenAIAudioChat = ({ token, voice = 'alloy' }) => {
   const [isSessionActive, setIsSessionActive] = useState(false);
-  const peerConnectionRef = useRef<RTCPeerConnection | null>(null);
-  const audioContextRef = useRef<AudioContext | null>(null);
-  const audioStreamRef = useRef<MediaStream | null>(null);
-  const dataConnectionRef = useRef<RTCDataChannel | null>(null);
+  const [dataChannel, setDataChannel] = useState<RTCDataChannel | null>(null);
+  const peerConnectionRef = useRef(null);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const audioContextRef = useRef(null);
   const audioIndicatorRef = useRef<HTMLSpanElement | null>(null);
 
-  /*
+  const createRealtimeSession = async (stream) => {
+    const pc = new RTCPeerConnection({
+      iceServers: [{ urls: 'stun:stun.l.google.com:19302' }]
+    });
 
-  instuctions are not the same as the prompt. the instructions are succint
-  and they influcence how the model answer< the prompt.
-
-  */
-  const encodedPrompt = encodeURIComponent(`You are a helpful assistant who is tasked to answer questions as if you were The Oracle from The Matrix movie sharing her wisdom.`);
-
-  const createRealtimeSession = async (inStream, token, voice) => {
-    const pc = new RTCPeerConnection();
-    
-    // Handle incoming audio
-    pc.ontrack = e => {
-      const audio = new Audio();
-      audio.srcObject = e.streams[0];
-      audio.play();
-    };
-    
-    pc.addTrack(inStream.getTracks()[0]);
-    
-    ///
-    const initialConversationItem = {
-      type: "conversation.item.create",
-      item: {
-        type: "message",
-        role: "user",
-        content: [
-          {
-            type: "input_text",
-            text: "Greet the user with the exact message: Hello, I am the Oracle and and I am here to answer your questions about Marco.",
-          }
-        ]
-      },
-    };
-
-    const systemItem = {
-      type: "conversation.item.create",
-      item: {
-        type: "message",
-        role: "system",
-        content: [
-          {
-            type: "input_text",
-            text:  `You are a helpful assistant who is tasked to answer questions about my resume as if you were The Oracle from The Matrix movie sharing her wisdom. Answer using the third person form and refer to him either as Marco or he and limit the answer to about 150 words. Base your answers on my resume and do your very best to answer any question. Resume: ${JSON.stringify(cv)}. If the answer cannot be found in the resume, write "Sorry, cannot not answer that question."`,
-          }
-        ]
-      },
-    };
-    
-    const dc = pc.createDataChannel('openai');
-
-
-    dc.onopen = (event) => {
-
-      if (dc.readyState === 'open') {
-        dc.send(JSON.stringify(systemItem))
-        dc.send(JSON.stringify(initialConversationItem))
-        dc.send(JSON.stringify({"type": "response.create"}))
+    // Handle ICE candidates
+    pc.onicecandidate = event => {
+      if (event.candidate) {
+        // Handle ICE candidate if needed
       }
     };
-    
-    /*
+
+    // Set up audio
+    audioRef.current = new Audio();
+    pc.ontrack = e => {
+      audioRef.current.srcObject = e.streams[0];
+      audioRef.current.autoplay = true;
+    };
+
+    // Add local audio track
+    pc.addTrack(stream.getTracks()[0], stream);
+
+    // Create and set up data channel
+    const dc = pc.createDataChannel('openai');
+    setDataChannel(dc);
+
+    dc.onopen = () => {
+      if (dc.readyState === 'open') {
+        sendInitialMessages(dc);
+      }
+    };
+
     dc.onmessage = (event) => {
-      console.log(event.data);
+      const message = JSON.parse(event.data);
+      // Handle incoming messages
+     // console.log('Received message:', message);
     };
-    */
-   
-    const offer = await pc.createOffer();
-    await pc.setLocalDescription(offer);
-    
-    const headers = {
-      Authorization: `Bearer ${token}`,
-      'Content-Type': 'application/sdp'
+
+    dc.onerror = (error) => {
+      console.error('Data channel error:', error);
+      stopSession();
     };
-    
-    const opts = {
-      method: 'POST',
-      body: offer.sdp,
-      headers
-    };
-    
-    const model = 'gpt-4o-realtime-preview-2024-12-17';
-    const resp = await fetch(`https://api.openai.com/v1/realtime?model=${model}&voice=${voice}&instructions=${encodedPrompt}`, opts);
-    
-    await pc.setRemoteDescription({
-      type: 'answer',
-      sdp: await resp.text()
-    });
-    
-    return pc;
+
+    // Create and send offer
+    try {
+      const offer = await pc.createOffer();
+      await pc.setLocalDescription(offer);
+
+      const resp = await fetch(
+        `https://api.openai.com/v1/realtime?model=gpt-4o-realtime-preview-2024-12-17&voice=${voice}`,
+        {
+          method: 'POST',
+          body: offer.sdp,
+          headers: {
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/sdp'
+          }
+        }
+      );
+
+      if (!resp.ok) {
+        throw new Error(`Failed to get answer: ${resp.statusText}`);
+      }
+
+      const answer = await resp.text();
+      await pc.setRemoteDescription({
+        type: 'answer',
+        sdp: answer
+      });
+
+      return pc;
+    } catch (error) {
+      console.error('Connection setup failed:', error);
+      pc.close();
+      throw error;
+    }
   };
+
+  const startSession = async () => {
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({
+        audio: true,
+        video: false
+      });
+
+      const pc = await createRealtimeSession(stream);
+      peerConnectionRef.current = pc;
+      setIsSessionActive(true);
+
+      // Set up audio visualization after connection is established
+      setupAudioVisualization(stream);
+    } catch (error) {
+      console.error('Session start failed:', error);
+      stopSession();
+      // Handle error UI feedback
+    }
+  };
+
+  const stopSession = () => {
+    if (dataChannel) {
+      dataChannel.close();
+      setDataChannel(null);
+    }
+
+    if (peerConnectionRef.current) {
+      peerConnectionRef.current.close();
+      peerConnectionRef.current = null;
+    }
+
+    if (audioContextRef.current) {
+      audioContextRef.current.close();
+      audioContextRef.current = null;
+    }
+
+    if (audioRef.current) {
+      audioRef.current.srcObject = null;
+    }
+
+    setIsSessionActive(false);
+  };
+
+  useEffect(() => {
+    return () => {
+      stopSession();
+    };
+  }, []);
+
 
 
   const setupAudioVisualization = (stream) => {
@@ -130,55 +165,38 @@ const OpenAIAudioChat = ({ token, voice = 'alloy' }) => {
     return audioContext;
   };
   
-  const startSession = async () => {
-    try {
-      const stream = await navigator.mediaDevices.getUserMedia({
-        audio: true,
-        video: false
-      });
-      
-
-      audioStreamRef.current = stream;
-      audioContextRef.current = setupAudioVisualization(stream);
-
-      const pc = await createRealtimeSession(
-        stream,
-        token,
-        voice
-      );
-      
-    
-      peerConnectionRef.current = pc;
-      setIsSessionActive(true);
-      
-    } catch (err) {
-      console.error('Session error:', err);
-      stopSession();
-    }
-  };
-
-  const stopSession = () => {
-    if (peerConnectionRef.current) {
-      peerConnectionRef.current.close();
-      peerConnectionRef.current = null;
-    }
-    
-    if (audioContextRef.current) {
-      audioContextRef.current.close();
-      audioContextRef.current = null;
-    }
-    
-    if (audioStreamRef.current) {
-      audioStreamRef.current.getTracks().forEach(track => track.stop());
-      audioStreamRef.current = null;
-    }
-
-    if (dataConnectionRef.current) {  
-      dataConnectionRef.current.close();
-      dataConnectionRef.current = null;
-    }
-    
-    setIsSessionActive(false);
+  const sendInitialMessages = (dc) => {
+    const systemItem = {
+      type: "conversation.item.create",
+      item: {
+        type: "message",
+        role: "system",
+        content: [
+          {
+            type: "input_text",
+            text: `You are a helpful assistant who is tasked to answer questions about my resume as if you were The Oracle from The Matrix movie sharing her wisdom. Answer using the third person form and refer to him either as Marco or he and limit the answer to about 150 words. Base your answers on my resume and do your very best to answer any question. Resume: ${JSON.stringify(cv)}. If the answer cannot be found in the resume, write "Sorry, cannot not answer that question."`,
+          }
+        ]
+      },
+    };
+  
+    const initialConversationItem = {
+      type: "conversation.item.create",
+      item: {
+        type: "message",
+        role: "user",
+        content: [
+          {
+            type: "input_text",
+            text: "Greet the user with the exact message: Hello, I am the Oracle and and I am here to answer your questions about Marco.",
+          }
+        ]
+      },
+    };
+  
+    dc.send(JSON.stringify(systemItem));
+    dc.send(JSON.stringify(initialConversationItem));
+    dc.send(JSON.stringify({"type": "response.create"}));
   };
 
   return (
