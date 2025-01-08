@@ -70,7 +70,10 @@ const OpenAIAudioChat = ({ token, voice = 'alloy' }) => {
         dc.send(JSON.stringify({"type": "response.create"}))
       }
     };
-
+    
+    dc.onmessage = (event) => {
+      console.log(event.data);
+    };
 
     const offer = await pc.createOffer();
     await pc.setLocalDescription(offer);
