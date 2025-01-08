@@ -28,6 +28,7 @@ export default function Chat() {
   }, []); // Empty dependency array ensures this runs only once
    
   if (data?.client_secret.expires_at == 0) return <div>Loading...</div>
+  console.log ("Got da secret...");
 
   return (
   
