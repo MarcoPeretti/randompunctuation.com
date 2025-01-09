@@ -53,7 +53,7 @@ export default function Chat() {
       </h4>
 
       <h4 className="text-xl font-bold text-900 md:text-xl pb-4">
-        The APIs are also quite buggy, and therefore it does not always work :-( 
+        Temporarily down for maintenance, back soon. 
       </h4>
 
       <div className="container mx-auto py-2">
