@@ -2,7 +2,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "npm run setup && next build",
+    "build": "next build",
     "build-only": "next build",
     "start": "next start",
     "setup": "node ./lib/setup.mjs"
@@ -29,12 +29,13 @@
     "postgres": "^3.4.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-feather": "^2.0.10",
     "react-tweet": "^3.1.1",
     "react-wrap-balancer": "^1.1.0",
     "server-only": "^0.0.1",
     "sharp": "^0.33.4",
     "sugar-high": "^0.6.0",
-    "swr": "^2.2.4",
+    "swr": "^2.3.0",
     "uuid": "^11.0.3",
     "vercel": "^32.3.0"
   },

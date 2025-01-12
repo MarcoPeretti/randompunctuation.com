@@ -1,12 +1,13 @@
 export const runtime = 'edge';
 import { NextResponse } from 'next/server'
-import {SessionResponse} from 'lib/interfaces'
 
-export async function GET() {
+export async function GET(request: Request) {
+
     try {
 
       const response = await fetch('https://api.openai.com/v1/realtime/sessions', {
         method: 'POST',
+        cache: 'no-store',
         headers: {
           'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,
           'Content-Type': 'application/json',
@@ -25,11 +26,10 @@ export async function GET() {
       }
   
       const data = await response.json()
-
-      //console.log(data.id);
       return NextResponse.json({ data })  
 
     } catch (error) {
+      console.log("Err:", error)
       return NextResponse.json(
         { error: 'Internal server error' },
         { status: 500 }

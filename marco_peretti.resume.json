@@ -24,17 +24,15 @@
   },
   "work": [
     {
-      "Company": "Sabbatical Inc.",
-      "position": "Head Of Learning",
-      "startDate": "2023-05-01",
-      "endDate": "2023-12-31",
-      "summary": "Currently on a short sabbatical studing Machine Learning, Large Language Models (LLMs), LLM Security, MLOps, LancgChain, and other interesting topics. Python, TypeScript, C++ and C# are my main focus.\n\nI am also working on a few personal projects, such as a DevEx survey prototype (TypeScript, NextJs, Vercel). Followed MIT Sloan School of Management course on Artificial Intelligence: Implications for Business Strategy Program and obtained * Professional TensorFlow Developer Certificate from Coursera",
+      "Company": "Independent Consultant.",
+      "startDate": "2024-01-01",
+      "summary": "Currently working as an independent consultant, helping companies to improve their development processes, security, and product management.",
       "location": "Lausanne, Vaud, Switzerland"
     },{
       "Company": "ELCA",
       "position": "Head Of Operations",
       "startDate": "2021-09-30",
-      "endDate": "2023-04-30",
+      "endDate": "2023-12-31",
       "summary": "Managed a team in charge of integration projects, customer support, offers management for a new product (100M CHF investment, 200+ people)\n\nKey Contributions:\n• Successfully retained 4 out of 5 clients under very challenging conditions\n• Played a key role in securing a substantial investment through effective negotiations and proposal\ndevelopment\n• Collaborated with cross-functional teams to draft and negotiate complex framework contracts\n• Led complex data migration project\n• Established and managed a technical support department",
       "url": "https://www.linkedin.com/company/neosis/",
       "location": "Lausanne, Vaud, Switzerland"

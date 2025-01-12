@@ -6,8 +6,6 @@ import Sidebar from './components/sidebar';
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Analytics } from '@vercel/analytics/react';
 
-import MicrosoftClarity from "./metrics/MicrosoftClarity"
-
 const graphik = localFont({
   src: [
     {
@@ -75,7 +73,6 @@ export default function RootLayout({
         <main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0">
           <Sidebar />
           {children}
-          <MicrosoftClarity/>
           <Analytics />
           <SpeedInsights />
         </main>

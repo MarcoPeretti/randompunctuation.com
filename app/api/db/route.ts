@@ -16,7 +16,6 @@ export async function POST(req: Request) {
         else
             console.log("undefined...");
 
-
         return new NextResponse ('NOK');
         
     } catch (error) {
