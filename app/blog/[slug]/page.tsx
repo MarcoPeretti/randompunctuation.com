@@ -8,16 +8,29 @@ import { Suspense, cache } from 'react';
 import { getBlogPosts } from 'app/db/blog';
 import { increment } from 'app/db/actions';
 import { unstable_noStore as noStore } from 'next/cache';
-import Socials from 'app/components/socials' 
+import Socials from 'app/components/socials'
+
+export async function generateStaticParams() {
+  let posts =  getBlogPosts()
+
+  return posts.map((post) => ({
+    slug: post.slug,
+  }))
+}
 
 export async function generateMetadata({
   params,
-}): Promise<Metadata | undefined> {
-
+}: {
+  params: Promise<{ slug: string }>
+}) {
   const { slug } = await params
 
-  let posts = await getBlogPosts();
-  let post = posts.find((post) => post.slug === slug);
+  //const { slug } = await params
+  //let posts = await getBlogPosts();
+  //let post = posts.find((post) => post.slug === slug);
+  //let posts = getBlogPosts()
+
+  let post = getBlogPosts().find((post) => post.slug === slug)
 
   if (!post) {
     return;
@@ -38,7 +51,7 @@ export async function generateMetadata({
     title,
     description,
     keywords,
-    authors: [{name: 'Marco Peretti'}],
+    authors: [{ name: 'Marco Peretti' }],
     openGraph: {
       title,
       description,
@@ -91,11 +104,20 @@ function formatDate(date: string) {
   return `${fullDate} (${formattedDate})`;
 }
 
-export default async function Blog({ params }) {
 
+  // Multiple versions of this page will be statically generated
+// using the `params` returned by `generateStaticParams`
+export default async function Blog({
+  params,
+}: {
+  params: Promise<{ slug: string }>
+}) {
   const { slug } = await params
-  const posts = await getBlogPosts();
-  const post = posts.find((post) => post.slug === slug);
+
+  //const posts = await getBlogPosts();
+  //const post = posts.find((post) => post.slug === slug);
+
+    let post = getBlogPosts().find((post) => post.slug === slug)
 
   if (!post) {
     notFound();
@@ -142,9 +164,9 @@ export default async function Blog({ params }) {
       </div>
       <article className="prose prose-quoteless prose-neutral dark:prose-invert">
         <CustomMDX source={post.content} />
-      </article>    
-      <Socials/>
-      </section>
+      </article>
+      <Socials />
+    </section>
   );
 }
 

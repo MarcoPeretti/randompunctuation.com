@@ -10,12 +10,22 @@ import { increment } from 'app/db/actions';
 import { unstable_noStore as noStore } from 'next/cache';
 import Socials from 'app/components/socials' 
 
+export async function generateStaticParams() {
+  let notes =  getNotes()
+
+  return notes.map((note) => ({
+    slug: note.slug,
+  }))
+}
+
 export async function generateMetadata({
   params,
-}): Promise<Metadata | undefined> {
-
+}: {
+  params: Promise<{ slug: string }>
+}) {
   const { slug } = await params
-  let notes = await getNotes();
+
+  let notes = getNotes();
   let note = notes.find((post) => post.slug === slug);
   if (!note) {
     return;
@@ -88,11 +98,14 @@ function formatDate(date: string) {
 
   return `${fullDate} (${formattedDate})`;
 }
-
-export default async function Note({ params }) {
+export default async function Note({
+  params,
+}: {
+  params: Promise<{ slug: string }>
+}) {
 
   const { slug } = await params
-  const notes = await getNotes();
+  const notes = getNotes();
   const note = notes.find((post) => post.slug === slug);
 
   if (!note) {

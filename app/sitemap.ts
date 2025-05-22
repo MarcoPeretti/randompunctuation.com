@@ -1,13 +1,13 @@
 import { getBlogPosts, getNotes } from 'app/db/blog';
 
 export default async function sitemap() {
-  const blogs = await getBlogPosts();
+  const blogs = getBlogPosts();
   blogs.map((post) => ({
     url: `https://randompunctuation.com/blog/${post.slug}`,
     lastModified: post.metadata.publishedAt,
   }));
 
-  const notes = await getNotes();
+  const notes = getNotes();
   notes.map((post) => ({
     url: `https://randompunctuation.com/notes/${post.slug}`,
     lastModified: post.metadata.publishedAt,

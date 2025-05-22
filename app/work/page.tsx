@@ -47,7 +47,7 @@ export default async function Page() {
         The second one is so that I can improve. 
 
         <ul>
-          <li>In meetings I may look serious. This is usually because I am usually very focused and paying attention, often in a foreign language. It is OK to remind me to &lsquo;smile more&rsquo; .</li>
+          <li>In meetings I may look a wee bit too serious. This is usually because I am usually very focused and paying attention, often in a foreign language. It is OK to remind me to &lsquo;smile more&rsquo; .</li>
           <li>I may sometimes struggle to patiently listen until the end and will propose a &lsquo;solution&rsquo;. I am problem solver by nature, and sometimes can act instinctively. </li>
           <li>I don't particularly enjoy <em>lengthy</em> discussions on topics I happen to have invested a considerable amount of time researcing with people that have <em>strong opinions</em>, but cannot be bothered to invest time to also learn at least the basics of the subject being discussed.</li>
           <li>I sometimes answer email/messages after working-hours or on weekends. </li>
