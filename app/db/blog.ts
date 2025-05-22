@@ -56,10 +56,10 @@ function getMDXData(dir) {
   });
 }
 
-export function getBlogPosts() {
+export async function getBlogPosts() {
   return getMDXData(path.join(process.cwd(), 'content'));
 }
 
-export function getNotes() {
+export async function getNotes() {
   return getMDXData(path.join(process.cwd(), 'notes'));
 }

@@ -11,9 +11,9 @@ export const metadata: Metadata = {
   keywords: "Engineering Management, Scaling Teams, Cybersecurity, Hiring",
 };
 
-export default function BlogPage() {
+export default async function BlogPage() {
 
-  let allBlogs = getBlogPosts();
+  let allBlogs = await getBlogPosts();
 
   return (
     <section>

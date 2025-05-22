@@ -13,7 +13,12 @@ import Socials from 'app/components/socials'
 export async function generateMetadata({
   params,
 }): Promise<Metadata | undefined> {
-  let post = getBlogPosts().find((post) => post.slug === params.slug);
+
+  const { slug } = await params
+
+  let posts = await getBlogPosts();
+  let post = posts.find((post) => post.slug === slug);
+
   if (!post) {
     return;
   }
@@ -86,8 +91,11 @@ function formatDate(date: string) {
   return `${fullDate} (${formattedDate})`;
 }
 
-export default function Blog({ params }) {
-  const post = getBlogPosts().find((post) => post.slug === params.slug);
+export default async function Blog({ params }) {
+
+  const { slug } = await params
+  const posts = await getBlogPosts();
+  const post = posts.find((post) => post.slug === slug);
 
   if (!post) {
     notFound();

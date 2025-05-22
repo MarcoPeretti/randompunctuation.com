@@ -11,9 +11,9 @@ export const metadata: Metadata = {
   keywords: "Engineering Management, Scaling Teams, Cybersecurity, Hiring",
 };
 
-export default function NotesPage() {
+export default async function NotesPage() {
 
-  let allNotes = getNotes();
+  let allNotes = await getNotes();
 
   return (
     <section>
