@@ -252,7 +252,7 @@
       "name": "Engineering Management"
     },
     {
-      "name": "Design Patterns"
+      "name": "Machine Learning"
     },
     {
       "name": "Android"
@@ -261,7 +261,7 @@
       "name": "Strategy"
     },
     {
-      "name": "iOS"
+      "name": "Generative AI"
     },
     {
       "name": "docker"
@@ -291,10 +291,28 @@
       "name": "Jira"
     },
     {
-      "name": "Powershell"
+      "name": "GenAI"
     },
     {
-      "name": "Engineering"
+      "name": "Python"
+    },
+    {
+      "name": "Typescript"
+    },
+    {
+      "name": "Agentic Frameworks"
+    },
+    {
+      "name": "LLM Security"
+    },
+       {
+      "name": "Large Language Models"
+    },
+    {
+      "name": "Fine Tuning LLMs"
+    },
+    {
+      "name": "MLOps"
     },
     {
       "name": "Windows kernel programming"
@@ -333,6 +351,14 @@
     {
       "name": "Engineering Management",
       "keywords": ["DevEx", "DevOps", "Agile", "SAFe", "Scalable Agile processes", "DORA Metrics"]
+    },
+    {
+      "name": "Software Development",
+      "keywords": ["C#", "C++", "Python", "JavaScript", "Typescript", "React", "NextJs"]
+    },
+    {
+      "name": "Artificial Intelligence",
+      "keywords": ["Generative AI", "Large Language Models", "MLOps"]
     }
   ],
   "projects": [
@@ -363,6 +389,13 @@
       "url": "https://www.randompunctuation.com/projects",
       "summary": "This research project aimed at centralizing applications’ battery usage as well as ways to reduce their consumptions and thus extend battery life.",
       "keywords": ["AWS Athena", "AWS Glue", "S3", "AWS Amplify", "Dynamo DB", "AWS SDK for C++", "Amazon SQS", "AWS Lamdba", "CloudFront", "Terraform"]
+    },
+    {
+      "name": "AI Interview Practice",
+      "startDate": "2025",
+      "url": "https://www.randompunctuation.com/projects",
+      "summary": "Developed a AI-powered SaaS side-projects to hep candidates practice answering Interview Questions.",
+      "keywords": ["LLM", "Generative AI", "SvelteKit", "RAG", "Fine-Tuning", "Typescript", "OpenAI API", "CloudFlare", "Supabase"]
     }
   ],
   "meta": {
