@@ -77,14 +77,8 @@ export default function ProjectsPage() {
           <p>
             <b>Stack: </b>NextJs/React, Typescript, Tailwind CSS, NextAuth.js, Postgres, SurveyJS, Vercel
           </p>
-
-        <h3 id="source">Source code</h3>
-          <p>
-            I rarely release source code as I don’t really plan to maintain these projects and, to be honest, the quality of the code is often so-so. They are useful to me to experiment and learn new concepts.  
-          </p>
         </div>
-
-        <Socials/>
+      <Socials/>
 
     </section>
       );
