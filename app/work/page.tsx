@@ -84,7 +84,10 @@ export default async function Page() {
           <li>Certified Kubernetes Administration (Udemy).</li>
           <li>AWS Certified Solutions Architect - Associate.</li>
           <li>Azure Architecture Technologies (Udemy).</li>
-          <li>Certified Information Systems Security Professiona (CISSP)</li>
+          <li>Certified Information Systems Security Professional (CISSP).</li>
+          <li>MLOps (EDX).</li>
+          <li>Predictive Analytics: Basic Modeling Techniques (EDX).</li>
+          <li>Rhetoric: The Art of Persuasive Writing and Public Speaking.</li>
          </ul>
          
         <h3 className="mt-8" id="contact">Get in touch</h3>
