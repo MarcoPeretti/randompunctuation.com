@@ -73,6 +73,20 @@ export default async function Page() {
           <li>Don&lsquo;t make me chase you for stuff we agreed. Once you commit to something, it is your responsiblity to drive it forward and keep me updated. The same applies to me, of course.</li>
          </ul>
 
+         <h3 className="mt-8" id="know">Recent Trainings & Certs</h3>
+
+         <ul>
+          <li>Leadership (IMDB)</li>
+          <li>MIT AI Business Strategy.</li>
+          <li>Machine Learning (Coursera)</li>
+          <li>DeepLearning.AI TensorFlow Developer (Coursera).</li>
+          <li>ISC2 Certified in Cybersecurity.</li>
+          <li>Certified Kubernetes Administration (Udemy).</li>
+          <li>AWS Certified Solutions Architect - Associate.</li>
+          <li>Azure Architecture Technologies (Udemy).</li>
+          <li>Certified Information Systems Security Professiona (CISSP)</li>
+         </ul>
+         
         <h3 className="mt-8" id="contact">Get in touch</h3>
 
       </div>
