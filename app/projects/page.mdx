@@ -1,0 +1,54 @@
+export const metadata = {
+  title: "Projects",
+  description:
+    "Some information about a few research projects I worked on recently, primarily to learn and keep up to date with (almost) everything that is going on.",
+  keywords:
+    "Marco Peretti, Engineering Executive, Scaling Engineering Teams, Engineering Management, Cybersecurity",
+  alternates: {
+    canonical: "/projects",
+  },
+};
+
+# Recent Projects
+
+<br />
+
+I learn by doing, which means I am usually working on some side project.
+
+This page complements information on my CV, and covers recent side/research projects that I have worked on during the past 3/4 years.
+
+I have many years of experience with both Azure and AWS, which I have used pretty much since they launched. In terms of programming languages, I tend to use mostly C# and C++, but have reasonable knowledge of both Python and Typescript. On the frontend, I tend to use Next.js and Tailwind.
+
+## DLLs side-loading and local privilege escalation protection
+
+I wrote a Windows Kernel Driver to restrict Microsoft inbox executables to only load Microsoft signed DLLs and extended it to block a good number of known UAC exploits. More information [here](/uacguard).
+
+## Crash Analysis as a Service
+
+Here I looked into automating crash dumps collections and analysis. The backend is written in C# and runs on Windows Azure. The Crash Analysis engine is written in C++ and running in a Docker image. The frontend was a simple website deployed to Vercel.
+
+It turns out that trying to fully automate crash analysis is a very hard problem to solve, especially without symbols. It has been nevertheless a fun project to work on.
+
+**Stack:** Azure Container Registry, Azure Container Instances, API Management Service, Function Apps, Logic Apps, Storage Accounts, DNS Zone, Key Vault, Send Grid, Front Door CDN, Application Insights, Service Bus, Azure Cosmos DB
+
+## Applications' Battery Usage
+
+This research project aimed at centralizing applications’ battery usage as well as ways to reduce their consumptions and thus extend battery life. The Windows client is written in C++ and a mix of Go and Javascript on the backend. The frontend was a static website deployed to CloudFront.
+
+The applications' battery usage where collected from the SRUM database, and by far the hardest part was coming up with a good data model. I experimented with both Dynamo DB single table design as well as using a time-series database such as AWS timestream.
+
+It should not be a big surprise to learn that the major culprits are browsers and video conferencing software. Browsers are interesting as, at runtime, they create lots of child processes and considerable gains were obtained by putting them to sleep when the window was not in focus. Newer browsers' versions have implemented similar solutions and I decided to stop working on this project.
+
+**Stack:** AWS Athena, Glue, S3, Lambda, SQS, CloudFront, Route 53, AWS Amplify, Dynamo DB, SimpleDB, AWS Timestream, AWS SDK for C++
+
+## Ransomware protection
+
+This is an older project dating back to 2017 where I developed a Windows kernel driver PoC that calculated the entropy of each file as it was written to disk and rejected the ones over a given threshold.
+
+## Developers' Survey
+
+I am interested in Developers’ Experience (DevEx), so I developed a survey application to collect key insights into the challenges that development teams face.
+
+Questions were derived from DevOps Research and Assessment [DORA](https://dora.dev/), The [Space Framework](https://queue.acm.org/detail.cfm?id=3454124), and other sources.
+
+**Stack:** NextJs/React, Typescript, Tailwind CSS, NextAuth.js, Postgres, SurveyJS, Vercel

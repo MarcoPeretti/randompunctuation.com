@@ -1,24 +1,38 @@
-import { getBlogPosts, getNotes } from 'app/db/blog';
+import { promises as fs } from 'fs';
+import path from 'path';
+
+const SITE_URL = 'https://next-mdx-blog.vercel.app';
+
+async function getNoteSlugs(dir: string) {
+  const entries = await fs.readdir(dir, {
+    recursive: true,
+    withFileTypes: true
+  });
+  return entries
+    .filter((entry) => entry.isFile() && entry.name === 'page.mdx')
+    .map((entry) => {
+      const relativePath = path.relative(
+        dir,
+        path.join(entry.parentPath, entry.name)
+      );
+      return path.dirname(relativePath);
+    })
+    .map((slug) => slug.replace(/\\/g, '/'));
+}
 
 export default async function sitemap() {
-  const blogs = getBlogPosts();
-  blogs.map((post) => ({
-    url: `https://randompunctuation.com/blog/${post.slug}`,
-    lastModified: post.metadata.publishedAt,
+  const notesDirectory = path.join(process.cwd(), 'app', 'n');
+  const slugs = await getNoteSlugs(notesDirectory);
+
+  const notes = slugs.map((slug) => ({
+    url: `${SITE_URL}/n/${slug}`,
+    lastModified: new Date().toISOString()
   }));
 
-  const notes = getNotes();
-  notes.map((post) => ({
-    url: `https://randompunctuation.com/notes/${post.slug}`,
-    lastModified: post.metadata.publishedAt,
+  const routes = ['', '/work'].map((route) => ({
+    url: `${SITE_URL}${route}`,
+    lastModified: new Date().toISOString()
   }));
 
-  const routes = ['', '/blog', '/notes', '/about', '/projects', '/ask', '/work'].map(
-    (route) => ({
-      url: `https://randompunctuation.com${route}`,
-      lastModified: new Date().toISOString().split('T')[0],
-    })
-  );
-
-  return [...routes, ...blogs, ...notes];
+  return [...routes, ...notes];
 }

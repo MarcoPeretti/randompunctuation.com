@@ -1,21 +1,35 @@
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fleerob%2Fnext-mdx-blog)
 
+# next-mdx-blog
 
-# randompunctuation.com
+This is a blog template built with:
 
-Source code for my blog. 
-
-The code has been initially cloned from this [template](https://github.com/leerob/leerob.io) 
-
-Stack:
-
-- **Framework**: [Next.js](https://nextjs.org/)
-- **Database**: [Postgres](https://vercel.com/postgres)
-- **Authentication**: [NextAuth.js](https://next-auth.js.org)
+- **Framework**: [Next.js](https://nextjs.org)
 - **Deployment**: [Vercel](https://vercel.com)
 - **Styling**: [Tailwind CSS](https://tailwindcss.com)
 - **Analytics**: [Vercel Analytics](https://vercel.com/analytics)
+- **Database** (Optional): [Postgres](https://vercel.com/postgres)
 
+## Running Locally
 
-## Cloning / Forking
+This application requires Node.js v18.17+.
 
-Full instructions to get started can be found [here](https://github.com/leerob/leerob.io)
+```bash
+git clone https://github.com/leerob/next-mdx-blog.git
+cd next-mdx-blog
+pnpm install
+pnpm dev
+```
+
+## Database (Optional)
+
+Create a `.env.local` file with your `POSTGRES_URL` environment variable to store redirects.
+
+```sql
+CREATE TABLE redirects (
+  id SERIAL PRIMARY KEY,
+  source VARCHAR(255) NOT NULL,
+  destination VARCHAR(255) NOT NULL,
+  permanent BOOLEAN NOT NULL
+);
+```
