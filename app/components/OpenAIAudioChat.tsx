@@ -2,7 +2,12 @@ import React, { useState, useRef, useEffect } from 'react';
 
 import cv from 'marco_peretti.resume.json';
 
-const OpenAIAudioChat = ({ token, voice = 'alloy' }) => {
+type OpenAIAudioChatProps = {
+  token: string;
+  voice?: string;
+};
+
+const OpenAIAudioChat = ({ token, voice = 'alloy' }: OpenAIAudioChatProps) => {
   const [isSessionActive, setIsSessionActive] = useState(false);
   const peerConnectionRef = useRef<RTCPeerConnection | null>(null);
   const audioContextRef = useRef<AudioContext | null>(null);
@@ -18,20 +23,44 @@ const OpenAIAudioChat = ({ token, voice = 'alloy' }) => {
   */
   const encodedPrompt = encodeURIComponent(`You are a helpful assistant who is tasked to answer questions as if you were The Oracle from The Matrix movie sharing her wisdom.`);
 
-  const createRealtimeSession = async (inStream, token, voice) => {
+  interface ConversationContent {
+    type: string;
+    text: string;
+  }
+
+  interface ConversationItem {
+    type: string;
+    item: {
+      type: string;
+      role: string;
+      content: ConversationContent[];
+    };
+  }
+
+  interface CreateRealtimeSessionOptions {
+    inStream: MediaStream;
+    token: string;
+    voice: string;
+  }
+
+  const createRealtimeSession = async (
+    inStream: MediaStream,
+    token: string,
+    voice: string
+  ): Promise<RTCPeerConnection> => {
     const pc = new RTCPeerConnection();
-    
+
     // Handle incoming audio
-    pc.ontrack = e => {
+    pc.ontrack = (e: RTCTrackEvent) => {
       const audio = new Audio();
       audio.srcObject = e.streams[0];
       audio.play();
     };
-    
+
     pc.addTrack(inStream.getTracks()[0]);
-    
+
     ///
-    const initialConversationItem = {
+    const initialConversationItem: ConversationItem = {
       type: "conversation.item.create",
       item: {
         type: "message",
@@ -45,7 +74,7 @@ const OpenAIAudioChat = ({ token, voice = 'alloy' }) => {
       },
     };
 
-    const systemItem = {
+    const systemItem: ConversationItem = {
       type: "conversation.item.create",
       item: {
         type: "message",
@@ -58,71 +87,77 @@ const OpenAIAudioChat = ({ token, voice = 'alloy' }) => {
         ]
       },
     };
-    
-    const dc = pc.createDataChannel('openai');
 
+    const dc: RTCDataChannel = pc.createDataChannel('openai');
 
-    dc.onopen = (event) => {
-
+    dc.onopen = (event: Event) => {
       if (dc.readyState === 'open') {
-        dc.send(JSON.stringify(systemItem))
-        dc.send(JSON.stringify(initialConversationItem))
-        dc.send(JSON.stringify({"type": "response.create"}))
+        dc.send(JSON.stringify(systemItem));
+        dc.send(JSON.stringify(initialConversationItem));
+        dc.send(JSON.stringify({"type": "response.create"}));
       }
     };
-    
-    dc.onmessage = (event) => {
+
+    dc.onmessage = (event: MessageEvent) => {
       //console.log(event.data);
     };
 
-    const offer = await pc.createOffer();
+    const offer: RTCSessionDescriptionInit = await pc.createOffer();
     await pc.setLocalDescription(offer);
-    
-    const headers = {
+
+    const headers: Record<string, string> = {
       Authorization: `Bearer ${token}`,
       'Content-Type': 'application/sdp'
     };
-    
-    const opts = {
+
+    const opts: RequestInit = {
       method: 'POST',
       body: offer.sdp,
       headers
     };
-    
+
     const model = 'gpt-4o-realtime-preview-2024-12-17';
-    const resp = await fetch(`https://api.openai.com/v1/realtime?model=${model}&voice=${voice}&instructions=${encodedPrompt}`, opts);
-    
+    const resp: Response = await fetch(`https://api.openai.com/v1/realtime?model=${model}&voice=${voice}&instructions=${encodedPrompt}`, opts);
+
     await pc.setRemoteDescription({
       type: 'answer',
       sdp: await resp.text()
     });
-    
+
     return pc;
   };
 
 
-  const setupAudioVisualization = (stream) => {
-    const audioContext = new AudioContext();
-    const source = audioContext.createMediaStreamSource(stream);
-    const analyzer = audioContext.createAnalyser();
+  interface SetupAudioVisualization {
+    (stream: MediaStream): AudioContext;
+  }
+
+  interface UpdateIndicator {
+    (): void;
+  }
+
+  const setupAudioVisualization: SetupAudioVisualization = (stream) => {
+    const audioContext: AudioContext = new AudioContext();
+    const source: MediaStreamAudioSourceNode = audioContext.createMediaStreamSource(stream);
+    const analyzer: AnalyserNode = audioContext.createAnalyser();
     analyzer.fftSize = 256;
     
     source.connect(analyzer);
     
-    const bufferLength = analyzer.frequencyBinCount;
-    const dataArray = new Uint8Array(bufferLength);
+    const bufferLength: number = analyzer.frequencyBinCount;
+    const dataArray: Uint8Array = new Uint8Array(bufferLength);
     
-    function updateIndicator() {
+    const updateIndicator: UpdateIndicator = () => {
       if (!audioContext) return;
       
       analyzer.getByteFrequencyData(dataArray);
-      const average = dataArray.reduce((a, b) => a + b) / bufferLength;
+      const average: number = dataArray.reduce((a, b) => a + b) / bufferLength;
       
       if (audioIndicatorRef.current) {
         audioIndicatorRef.current.classList.toggle('active', average > 30);
       }
       requestAnimationFrame(updateIndicator);
-    }
+    };
     
     updateIndicator();
     return audioContext;
