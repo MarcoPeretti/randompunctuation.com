@@ -11,8 +11,14 @@ export const revalidate = false;
 // Ensure Node runtime for FS access
 export const runtime = "nodejs";
 
-const RSS_URL =
-  "https://www.goodreads.com/review/list_rss/193108164?key=RLyDenqpiL-EH8NvHi0IswU195gkE3xJzuwJWgsl_UAbonI9&shelf=%23ALL%23";
+const BASE_RSS_URL =
+  "https://www.goodreads.com/review/list_rss/193108164?key=RLyDenqpiL-EH8NvHi0IswU195gkE3xJzuwJWgsl_UAbonI9&shelf=";
+
+const SHELVES = [
+  { name: "read", param: "read" },
+  { name: "to-read", param: "to-read" },
+  { name: "currently-reading", param: "currently-reading" },
+];
 
 export type Book = {
   title: string;
@@ -75,8 +81,9 @@ async function cacheImageToPublic(url: string): Promise<string | undefined> {
   }
 }
 
-async function getBooks(): Promise<Book[]> {
-  const res = await fetch(RSS_URL, {
+async function fetchShelfBooks(shelf: string): Promise<Book[]> {
+  const url = `${BASE_RSS_URL}${encodeURIComponent(shelf)}`;
+  const res = await fetch(url, {
     headers: {
       Accept:
         "application/rss+xml, application/xml;q=0.9, text/xml;q=0.8, */*;q=0.5",
@@ -89,7 +96,7 @@ async function getBooks(): Promise<Book[]> {
   const body = await res.text();
   if (!res.ok || body.trim().startsWith("<!DOCTYPE html")) {
     throw new Error(
-      `Goodreads RSS fetch failed (status ${res.status}). Got HTML instead of XML.`
+      `Goodreads RSS fetch failed (status ${res.status}) for shelf "${shelf}". Got HTML instead of XML.`
     );
   }
 
@@ -115,12 +122,6 @@ async function getBooks(): Promise<Book[]> {
         ? String(it.rating)
         : undefined;
 
-    const shelfRaw = it?.user_shelves;
-    let shelf = "read";
-    if (typeof shelfRaw === "string" && shelfRaw.trim()) shelf = shelfRaw;
-    else if (Array.isArray(shelfRaw) && typeof shelfRaw[0] === "string" && shelfRaw[0].trim())
-      shelf = shelfRaw[0];
-
     const link = typeof it?.link === "string" ? it.link : "#";
 
     return { title, author, link, cover: rawCover, rating, shelf };
@@ -135,6 +136,15 @@ async function getBooks(): Promise<Book[]> {
   );
 
   return withLocal;
+}
+
+async function getBooks(): Promise<Book[]> {
+  // Fetch all shelves in parallel and merge
+  const results = await Promise.all(
+    SHELVES.map(({ name }) => fetchShelfBooks(name))
+  );
+  // Flatten and return
+  return results.flat();
 }
 
 export default async function Page() {
