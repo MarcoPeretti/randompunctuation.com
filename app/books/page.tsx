@@ -144,9 +144,6 @@ export default async function Page() {
     <main className="mx-auto max-w-6xl p-6">
       <h1 className="mb-4 text-2xl font-semibold">My Goodreads Books</h1>
       <ShelfFilter books={books} />
-      <p className="mt-3 text-xs text-gray-500">
-        Source: Goodreads RSS. Covers cached to <code>/public/images</code>.
-      </p>
     </main>
   );
 }
