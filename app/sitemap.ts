@@ -21,18 +21,48 @@ async function getNoteSlugs(dir: string) {
 }
 
 export default async function sitemap() {
-  const notesDirectory = path.join(process.cwd(), 'app', 'blog');
-  const slugs = await getNoteSlugs(notesDirectory);
 
-  const blogs = slugs.map((slug) => ({
+  // blogs
+  const blogsDirectory = path.join(process.cwd(), 'app', 'blog');
+  const blogSlugs = await getNoteSlugs(blogsDirectory);
+
+  const blogs = blogSlugs.map((slug) => ({
     url: `${SITE_URL}/blog/${slug}`,
     lastModified: new Date().toISOString()
   }));
 
-  const routes = ['', '/work'].map((route) => ({
+  // notes
+  const notesDirectory = path.join(process.cwd(), 'app', 'notes');
+  const notesSlugs = await getNoteSlugs(notesDirectory);
+  const notes = notesSlugs.map((slug) => ({
+    url: `${SITE_URL}/notes/${slug}`,
+    lastModified: new Date().toISOString()
+  }));
+
+  const work = ['', '/work'].map((route) => ({
     url: `${SITE_URL}${route}`,
     lastModified: new Date().toISOString()
   }));
 
-  return [...routes, ...blogs];
+  const about = ['', '/about'].map((route) => ({
+    url: `${SITE_URL}${route}`,
+    lastModified: new Date().toISOString()
+  }));
+
+  const projects = ['', '/projects'].map((route) => ({
+    url: `${SITE_URL}${route}`,
+    lastModified: new Date().toISOString()
+  }));
+
+  const uacguard = ['', '/uacguard'].map((route) => ({
+    url: `${SITE_URL}${route}`,
+    lastModified: new Date().toISOString()
+  }));
+
+  const ask = ['', '/ask'].map((route) => ({
+    url: `${SITE_URL}${route}`,
+    lastModified: new Date().toISOString()
+  }));
+
+  return [...work, ...about, ...projects, ...uacguard, ...ask, ...notes, ...blogs];
 }
