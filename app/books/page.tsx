@@ -152,7 +152,17 @@ export default async function Page() {
 
   return (
     <main className="mx-auto max-w-6xl p-6">
-      <h1 className="mb-4 text-2xl font-semibold">My Goodreads Books</h1>
+      <h1 className="mb-4 text-2xl font-semibold">
+        My Goodreads{" "}
+        <a
+          href="https://www.goodreads.com/user/show/193108164-marco-peretti"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline underline-offset-2 text-blue-700 hover:text-blue-900"
+        >
+          Books
+        </a>
+      </h1>
       <ShelfFilter books={books} />
     </main>
   );
