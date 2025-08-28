@@ -44,22 +44,22 @@ export default async function sitemap() {
     lastModified: new Date().toISOString()
   }));
 
-  const about = ['', '/about'].map((route) => ({
+  const about = ['/about'].map((route) => ({
     url: `${SITE_URL}${route}`,
     lastModified: new Date().toISOString()
   }));
 
-  const projects = ['', '/projects'].map((route) => ({
+  const projects = ['/projects'].map((route) => ({
     url: `${SITE_URL}${route}`,
     lastModified: new Date().toISOString()
   }));
 
-  const uacguard = ['', '/uacguard'].map((route) => ({
+  const uacguard = ['/uacguard'].map((route) => ({
     url: `${SITE_URL}${route}`,
     lastModified: new Date().toISOString()
   }));
 
-  const ask = ['', '/ask'].map((route) => ({
+  const ask = ['/ask'].map((route) => ({
     url: `${SITE_URL}${route}`,
     lastModified: new Date().toISOString()
   }));
