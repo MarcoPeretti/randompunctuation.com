@@ -1,5 +1,6 @@
 // app/goodreads/page.tsx
 import { XMLParser } from "fast-xml-parser";
+import ShelfFilter from "./ShelfFilter";
 
 // Force SSG (static at build)
 export const dynamic = "force-static";
@@ -14,7 +15,7 @@ type Book = {
   link: string;
   cover?: string;
   rating?: string;
-  pubYear?: string;
+  shelf?: string;
 };
 
 function extractFirstImgSrc(html?: string): string | undefined {
@@ -86,16 +87,24 @@ async function getBooks(): Promise<Book[]> {
         ? it?.rating.toString()
         : undefined;
 
-    const pubYear =
-      typeof it?.book_published === "string" || typeof it?.book_published === "number"
-        ? it?.book_published.toString()
-        : typeof it?.book_published_year === "string" || typeof it?.book_published_year === "number"
-        ? it?.book_published_year.toString()
-        : undefined;
+    const shelfRaw = it?.user_shelves;
+    let shelf: string;
+    if (typeof shelfRaw === "string" && shelfRaw.trim() !== "") {
+      shelf = shelfRaw;
+    } else if (
+      Array.isArray(shelfRaw) &&
+      shelfRaw.length > 0 &&
+      typeof shelfRaw[0] === "string" &&
+      shelfRaw[0].trim() !== ""
+    ) {
+      shelf = shelfRaw[0];
+    } else {
+      shelf = "read";
+    }
 
     const link = typeof it?.link === "string" ? it?.link : "#";
 
-    return { title, author, link, cover, rating, pubYear };
+    return { title, author, link, cover, rating, shelf };
   });
 
   return books;
@@ -107,44 +116,7 @@ export default async function Page() {
   return (
     <main className="mx-auto max-w-5xl p-6">
       <h1 className="mb-4 text-2xl font-semibold">My Goodreads Books</h1>
-
-      {/* List view (simple, responsive) */}
-      <ul className="divide-y rounded-2xl border">
-        {books.map((b, i) => (
-          <li key={i} className="flex items-start gap-4 p-4">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            {b.cover ? (
-              <img
-                src={b.cover}
-                alt={b.title}
-                className="h-20 w-auto rounded"
-                loading="lazy"
-              />
-            ) : (
-              <div className="h-20 w-14 rounded bg-gray-200" />
-            )}
-
-            <div className="min-w-0">
-              <a
-                href={b.link}
-                target="_blank"
-                rel="noreferrer"
-                className="line-clamp-2 font-medium underline underline-offset-2"
-              >
-                {b.title}
-              </a>
-              <div className="text-sm text-gray-600 dark:text-zinc-300">
-                {b.author || "Unknown author"}
-              </div>
-              <div className="mt-1 text-xs text-gray-500">
-                {b.rating ? `Rating: ${b.rating}` : "Rating: —"}
-                {b.pubYear ? ` • Year: ${b.pubYear}` : ""}
-              </div>
-            </div>
-          </li>
-        ))}
-      </ul>
-
+      <ShelfFilter books={books} />
       <p className="mt-3 text-xs text-gray-500">
         Source: Goodreads RSS. Generated statically at build time.
       </p>
