@@ -3,28 +3,25 @@ import path from 'path';
 
 const SITE_URL = 'https://randompunctuation.com';
 
-async function getNoteSlugs(dir: string) {
-  const entries = await fs.readdir(dir, {
-    recursive: true,
-    withFileTypes: true
-  });
+export async function getSlugs(dir: string) {
+  const entries = await fs.readdir(dir, { recursive: true, withFileTypes: true });
+
   return entries
-    .filter((entry) => entry.isFile() && entry.name === 'page.mdx')
-    .map((entry) => {
-      const relativePath = path.relative(
-        dir,
-        path.join(entry.parentPath, entry.name)
-      );
-      return path.dirname(relativePath);
+    .filter((e) => e.isFile() && e.name === 'page.mdx')
+    .map((e: any) => {
+      const abs = path.join(e.parentPath ?? dir, e.name);
+      const rel = path.relative(dir, abs);
+      const folder = path.dirname(rel).replace(/\\/g, '/');
+      return folder === '.' ? '' : folder;
     })
-    .map((slug) => slug.replace(/\\/g, '/'));
+    .filter((slug) => slug !== ''); // <-- skip the root
 }
 
 export default async function sitemap() {
 
   // blogs
   const blogsDirectory = path.join(process.cwd(), 'app', 'blog');
-  const blogSlugs = await getNoteSlugs(blogsDirectory);
+  const blogSlugs = await getSlugs(blogsDirectory);
 
   const blogs = blogSlugs.map((slug) => ({
     url: `${SITE_URL}/blog/${slug}`,
@@ -33,7 +30,7 @@ export default async function sitemap() {
 
   // notes
   const notesDirectory = path.join(process.cwd(), 'app', 'notes');
-  const notesSlugs = await getNoteSlugs(notesDirectory);
+  const notesSlugs = await getSlugs(notesDirectory);
   const notes = notesSlugs.map((slug) => ({
     url: `${SITE_URL}/notes/${slug}`,
     lastModified: new Date().toISOString()
@@ -64,5 +61,15 @@ export default async function sitemap() {
     lastModified: new Date().toISOString()
   }));
 
-  return [...work, ...about, ...projects, ...uacguard, ...ask, ...notes, ...blogs];
+  const blogRoot = ['/blog'].map((route) => ({
+    url: `${SITE_URL}${route}`,
+    lastModified: new Date().toISOString()
+  }));
+
+  const notesRoot = ['/notes'].map((route) => ({
+    url: `${SITE_URL}${route}`,
+    lastModified: new Date().toISOString()
+  }));
+
+  return [...work, ...about, ...projects, ...uacguard, ...ask, ...notes, ...blogs, ...blogRoot, ...notesRoot];
 }
