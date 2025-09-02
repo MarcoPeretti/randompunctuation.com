@@ -145,7 +145,7 @@ const OpenAIAudioChat = ({ token, voice = 'alloy' }: OpenAIAudioChatProps) => {
     source.connect(analyzer);
     
     const bufferLength: number = analyzer.frequencyBinCount;
-    const dataArray: Uint8Array = new Uint8Array(bufferLength);
+    const dataArray: Uint8Array<ArrayBuffer> = new Uint8Array(bufferLength);
     
     const updateIndicator: UpdateIndicator = () => {
       if (!audioContext) return;
