@@ -5,6 +5,19 @@ import oracle from 'public/images/oracle1.jpg';
 import Image from 'next/image';
 import OpenAIAudioChat from '../components/OpenAIAudioChat';
 import {SessionResponse} from 'lib/interfaces'
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  metadataBase: new URL('https://randompunctuation.com'),
+  alternates: {
+    canonical: '/ask'
+  },
+  title: {
+    default: 'Ask the Oracle',
+    template: '%s | Ask the Oracle'
+  },
+  description: 'Ask the Oracle - OpenAI realtime Audio.'
+};
 
 export default function Chat() {
 
