@@ -116,7 +116,7 @@ const OpenAIAudioChat = ({ token, voice = 'alloy' }: OpenAIAudioChatProps) => {
       headers
     };
 
-    const model = 'gpt-4o-realtime-preview-2024-12-17';
+    const model = 'gpt-realtime';
     const resp: Response = await fetch(`https://api.openai.com/v1/realtime?model=${model}&voice=${voice}&instructions=${encodedPrompt}`, opts);
 
     await pc.setRemoteDescription({
