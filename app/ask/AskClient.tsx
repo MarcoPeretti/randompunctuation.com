@@ -62,7 +62,7 @@ export default function AskClient() {
       <div className="relative inline-block text-left">
 
       <h4 className="text-xl font-bold text-900 md:text-xl pb-4">
-        You may ask The Oracle questions about my work experience. It's 2025, and The Oracle uses OpenAI Realtime Audio over WebRTC. 
+        You may ask The Oracle questions about my work experience. It's 2026, and The Oracle uses OpenAI Realtime Audio over WebRTC. 
       </h4>
       <div className="container mx-auto py-2">
         <OpenAIAudioChat 
