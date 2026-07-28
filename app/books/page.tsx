@@ -46,11 +46,11 @@ function upscaleCoverUrl(u?: string): string | undefined {
 function decodeHtmlEntities(s?: string) {
   if (!s || typeof s !== "string") return "";
   return s
-    .replace(/&amp;/g, "&")
     .replace(/&#39;/g, "'")
     .replace(/&quot;/g, '"')
     .replace(/&lt;/g, "<")
-    .replace(/&gt;/g, ">");
+    .replace(/&gt;/g, ">")
+    .replace(/&amp;/g, "&");
 }
 
 async function cacheImageToPublic(url: string): Promise<string | undefined> {
