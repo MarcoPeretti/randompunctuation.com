@@ -39,7 +39,7 @@ Here I looked into automating crash dumps collections and analysis. The backend 
 
 It turns out that trying to fully automate crash analysis is a very hard problem to solve, especially without symbols. It has been nevertheless a fun project to work on.
 
-**Stack:** Azure Container Registry, Azure Container Instances, API Management Service, Function Apps, Logic Apps, Storage Accounts, DNS Zone, Key Vault, Send Grid, Front Door CDN, Application Insights, Service Bus, Azure Cosmos DB
+<Stack items="Azure Container Registry, Azure Container Instances, API Management Service, Function Apps, Logic Apps, Storage Accounts, DNS Zone, Key Vault, Send Grid, Front Door CDN, Application Insights, Service Bus, Azure Cosmos DB" />
 
 ## Applications' Battery Usage
 
@@ -49,7 +49,7 @@ The applications' battery usage where collected from the SRUM database, and by f
 
 It should not be a big surprise to learn that the major culprits are browsers and video conferencing software. Browsers are interesting as, at runtime, they create lots of child processes and considerable gains were obtained by putting them to sleep when the window was not in focus. Newer browsers' versions have implemented similar solutions and I decided to stop working on this project.
 
-**Stack:** AWS Athena, Glue, S3, Lambda, SQS, CloudFront, Route 53, AWS Amplify, Dynamo DB, SimpleDB, AWS Timestream, AWS SDK for C++
+<Stack items="AWS Athena, Glue, S3, Lambda, SQS, CloudFront, Route 53, AWS Amplify, Dynamo DB, SimpleDB, AWS Timestream, AWS SDK for C++" />
 
 ## Ransomware protection
 
@@ -63,9 +63,9 @@ I have been working on a couple of self-hosted email privacy tools that deploy d
 
 [closedloop.email](https://closedloop.email) is a disposable, airgapped communication workspace for temporary, high-sensitivity conversations — it runs entirely on your own cloud infrastructure, isolated from the outside network, and can be destroyed entirely once you are done with it. It deploys into your own account on Hetzner, DigitalOcean, Vultr, or Linode.
 
-**Stack (cripta.to):** SvelteKit frontend on S3/CloudFront, Go REST API on AWS Lambda with PocketBase, Terraform (AWS infrastructure and the per-deployment Hetzner Cloud mail server templates), Stalwart, OpenAPI 3.0
+<Stack label="cripta.to" items="SvelteKit, Go, AWS Lambda, PocketBase, S3, CloudFront, Terraform, Hetzner Cloud, Stalwart, OpenAPI 3.0" />
 
-**Stack (closedloop.email):** SvelteKit storefront, Go control plane (REST API and provisioning worker on AWS Lambda, SQS, PocketBase on EC2, S3/CloudFront), Terraform modules for Hetzner/DigitalOcean/Vultr/Linode, Stalwart and Bulwark webmail behind Caddy, Cloudflare DNS
+<Stack label="closedloop.email" items="SvelteKit, Go, AWS Lambda, SQS, EC2, PocketBase, S3, CloudFront, Terraform, Hetzner, DigitalOcean, Vultr, Linode, Stalwart, Bulwark, Caddy, Cloudflare DNS" />
 
 ## Developers' Survey
 
@@ -73,7 +73,7 @@ I am interested in Developers’ Experience (DevEx), so I developed a survey app
 
 Questions were derived from DevOps Research and Assessment [DORA](https://dora.dev/), The [Space Framework](https://queue.acm.org/detail.cfm?id=3454124), and other sources.
 
-**Stack:** NextJs/React, Typescript, Tailwind CSS, NextAuth.js, Postgres, SurveyJS, Vercel
+<Stack items="NextJs/React, Typescript, Tailwind CSS, NextAuth.js, Postgres, SurveyJS, Vercel" />
 
 ## Knull, slicer of secrets
 
@@ -81,4 +81,4 @@ Questions were derived from DevOps Research and Assessment [DORA](https://dora.d
 
 The secrets are never used: nothing is tested against the service it belongs to. The point is to warn the repository owner so they can revoke and rotate the credential before somebody less friendly finds it.
 
-**Stack:** Cloudflare Workers, Typescript, D1, Workers Assets, Durable Objects and Cloudflare Containers (a Go scanner sidecar), cron triggers, Wrangler, Vitest
+<Stack items="Cloudflare Workers, Typescript, D1, Durable Objects, Cloudflare Containers, Go, Wrangler, Vitest" />

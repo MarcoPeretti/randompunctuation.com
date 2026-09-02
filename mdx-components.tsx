@@ -30,6 +30,40 @@ function slugify(node: React.ReactNode): string {
     .replace(/^-+|-+$/g, '');
 }
 
+// Renders the "Stack" line under a project as a labelled row of chips, so the
+// technology list reads as metadata rather than as another body paragraph.
+// `items` is a comma-separated list; `label` scopes it when a section covers
+// more than one project.
+function Stack({ items, label }: { items: string; label?: string }) {
+  return (
+    <div className="mt-5 mb-1">
+      <p className="mb-2 text-[11px] font-medium uppercase tracking-[0.14em] text-gray-400 dark:text-zinc-500">
+        Stack
+        {label ? (
+          <span className="normal-case tracking-normal text-gray-500 dark:text-zinc-400">
+            {' \u00b7 '}
+            {label}
+          </span>
+        ) : null}
+      </p>
+      <ul className="flex flex-wrap gap-1.5 pl-0 list-none">
+        {items
+          .split(',')
+          .map((item) => item.trim())
+          .filter(Boolean)
+          .map((item) => (
+            <li
+              key={item}
+              className="rounded border border-gray-200 bg-gray-50 px-2 py-1 text-[13px] leading-none text-gray-700 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-300"
+            >
+              {item}
+            </li>
+          ))}
+      </ul>
+    </div>
+  );
+}
+
 const components = {
   h1: (props: HeadingProps) => (
     <h1 className="font-medium pt-12 mb-0 text-4xl" {...props} />
@@ -108,6 +142,7 @@ const components = {
     const codeHTML = highlight(children as string);
     return <code dangerouslySetInnerHTML={{ __html: codeHTML }} {...props} />;
   },
+  Stack,
   Table: ({ data }: { data: { headers: string[]; rows: string[][] } }) => (
     <table>
       <thead>
