@@ -9,21 +9,48 @@ type ListItemProps = ComponentPropsWithoutRef<'li'>;
 type AnchorProps = ComponentPropsWithoutRef<'a'>;
 type BlockquoteProps = ComponentPropsWithoutRef<'blockquote'>;
 
+// next.config.ts enables mdxRs, which rules out rehype plugins such as
+// rehype-slug, so headings derive their anchor id here instead. Without this
+// there is nothing for an in-page "#section" link to target.
+function headingText(node: React.ReactNode): string {
+  if (node === null || node === undefined || typeof node === 'boolean') return '';
+  if (typeof node === 'string' || typeof node === 'number') return String(node);
+  if (Array.isArray(node)) return node.map(headingText).join('');
+  if (React.isValidElement(node)) {
+    return headingText((node.props as { children?: React.ReactNode }).children);
+  }
+  return '';
+}
+
+function slugify(node: React.ReactNode): string {
+  return headingText(node)
+    .toLowerCase()
+    .replace(/['\u2019]/g, '')      // Developers' Survey -> developers-survey
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
 const components = {
   h1: (props: HeadingProps) => (
     <h1 className="font-medium pt-12 mb-0 text-4xl" {...props} />
   ),
-  h2: (props: HeadingProps) => (
+  h2: ({ children, ...props }: HeadingProps) => (
     <h2
+      id={slugify(children)}
       className="text-gray-800 dark:text-zinc-200 font-medium mt-8 mb-3 text-2xl"
       {...props}
-    />
+    >
+      {children}
+    </h2>
   ),
-  h3: (props: HeadingProps) => (
+  h3: ({ children, ...props }: HeadingProps) => (
     <h3
+      id={slugify(children)}
       className="text-gray-800 dark:text-zinc-200 font-medium mt-8 mb-3 text-2xl"
       {...props}
-    />
+    >
+      {children}
+    </h3>
   ),
   h4: (props: HeadingProps) => <h4 className="font-medium" {...props} />,
   p: (props: ParagraphProps) => (
