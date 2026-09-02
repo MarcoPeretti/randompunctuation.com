@@ -30,6 +30,19 @@ export type Book = {
   shelf?: string;       // may be comma-separated
 };
 
+// fast-xml-parser hands back `any`, and the RSS fields are whatever Goodreads
+// chose to send, so every field starts out unknown and is narrowed at use.
+type GoodreadsItem = {
+  description?: unknown;
+  title?: unknown;
+  "dc:creator"?: unknown;
+  author_name?: unknown;
+  author?: unknown;
+  user_rating?: unknown;
+  rating?: unknown;
+  link?: unknown;
+};
+
 function extractFirstImgSrc(html?: string): string | undefined {
   if (!html) return;
   const m = html.match(/<img[^>]+src="([^"]+)"/i);
@@ -103,11 +116,18 @@ async function fetchShelfBooks(shelf: string): Promise<Book[]> {
   const parser = new XMLParser({ ignoreAttributes: false, attributeNamePrefix: "@_" });
   const data = parser.parse(body);
 
-  let items = data?.rss?.channel?.item ?? [];
-  if (!Array.isArray(items) && items) items = [items];
+  // A shelf holding a single book parses to one object rather than an array.
+  const rawItems: unknown = data?.rss?.channel?.item ?? [];
+  const items: GoodreadsItem[] = Array.isArray(rawItems)
+    ? (rawItems as GoodreadsItem[])
+    : rawItems
+    ? [rawItems as GoodreadsItem]
+    : [];
 
-  const books: Book[] = items.map((it: any) => {
-    const rawCover = extractFirstImgSrc(it?.description);
+  const books: Book[] = items.map((it) => {
+    const rawCover = extractFirstImgSrc(
+      typeof it?.description === "string" ? it.description : undefined
+    );
     const title = decodeHtmlEntities(typeof it?.title === "string" ? it.title : "");
     const author =
       decodeHtmlEntities(typeof it?.["dc:creator"] === "string" ? it["dc:creator"] : "") ||

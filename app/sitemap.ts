@@ -8,7 +8,7 @@ export async function getSlugs(dir: string) {
 
   return entries
     .filter((e) => e.isFile() && e.name === 'page.mdx')
-    .map((e: any) => {
+    .map((e) => {
       const abs = path.join(e.parentPath ?? dir, e.name);
       const rel = path.relative(dir, abs);
       const folder = path.dirname(rel).replace(/\\/g, '/');

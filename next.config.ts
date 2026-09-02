@@ -13,7 +13,7 @@ const nextConfig: NextConfig = {
       return [];
     }
 
-    let redirects = await sql`
+    const redirects = await sql`
       SELECT source, destination, permanent
       FROM redirects;
     `;
