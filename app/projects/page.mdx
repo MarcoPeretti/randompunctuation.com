@@ -63,6 +63,10 @@ I have been working on a couple of self-hosted email privacy tools that deploy d
 
 [closedloop.email](https://closedloop.email) is a disposable, airgapped communication workspace for temporary, high-sensitivity conversations — it runs entirely on your own cloud infrastructure, isolated from the outside network, and can be destroyed entirely once you are done with it. It deploys into your own account on Hetzner, DigitalOcean, Vultr, or Linode.
 
+**Stack (cripta.to):** SvelteKit frontend on S3/CloudFront, Go REST API on AWS Lambda with PocketBase, Terraform (AWS infrastructure and the per-deployment Hetzner Cloud mail server templates), Stalwart, OpenAPI 3.0
+
+**Stack (closedloop.email):** SvelteKit storefront, Go control plane (REST API and provisioning worker on AWS Lambda, SQS, PocketBase on EC2, S3/CloudFront), Terraform modules for Hetzner/DigitalOcean/Vultr/Linode, Stalwart and Bulwark webmail behind Caddy, Cloudflare DNS
+
 ## Developers' Survey
 
 I am interested in Developers’ Experience (DevEx), so I developed a survey application to collect key insights into the challenges that development teams face.
@@ -76,3 +80,5 @@ Questions were derived from DevOps Research and Assessment [DORA](https://dora.d
 [knull.ch](https://knull.ch) is a research project that scans recently created and updated GitHub repositories looking for credentials that their authors committed by mistake — the kind of key or token that gets added early on and then forgotten once the repository goes public.
 
 The secrets are never used: nothing is tested against the service it belongs to. The point is to warn the repository owner so they can revoke and rotate the credential before somebody less friendly finds it.
+
+**Stack:** Cloudflare Workers, Typescript, D1, Workers Assets, Durable Objects and Cloudflare Containers (a Go scanner sidecar), cron triggers, Wrangler, Vitest
