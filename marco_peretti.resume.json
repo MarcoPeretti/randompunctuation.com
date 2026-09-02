@@ -117,6 +117,13 @@
   ],
   "education": [
     {
+      "institution": "Universitat Rovira i Virgili (URV)",
+      "url": "https://www.urv.cat/en/",
+      "area": "Computer Security Engineering and Artificial Intelligence",
+      "studyType": "Master",
+      "startDate": "2025-10-01"
+    },
+    {
       "institution": "Strathclyde University",
       "area": "Information Technology",
       "studyType": "Bachelor"
