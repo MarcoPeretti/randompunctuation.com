@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 
 import cv from 'marco_peretti.resume.json';
 
@@ -35,12 +35,6 @@ const OpenAIAudioChat = ({ token, voice = 'alloy' }: OpenAIAudioChatProps) => {
       role: string;
       content: ConversationContent[];
     };
-  }
-
-  interface CreateRealtimeSessionOptions {
-    inStream: MediaStream;
-    token: string;
-    voice: string;
   }
 
   const createRealtimeSession = async (
@@ -90,7 +84,7 @@ const OpenAIAudioChat = ({ token, voice = 'alloy' }: OpenAIAudioChatProps) => {
 
     const dc: RTCDataChannel = pc.createDataChannel('openai');
 
-    dc.onopen = (event: Event) => {
+    dc.onopen = () => {
       if (dc.readyState === 'open') {
         dc.send(JSON.stringify(systemItem));
         dc.send(JSON.stringify(initialConversationItem));
@@ -98,8 +92,9 @@ const OpenAIAudioChat = ({ token, voice = 'alloy' }: OpenAIAudioChatProps) => {
       }
     };
 
-    dc.onmessage = (event: MessageEvent) => {
-      //console.log(event.data);
+    dc.onmessage = () => {
+      // Inbound realtime events are not consumed yet: the assistant's audio
+      // arrives on the peer connection's media track, handled in ontrack.
     };
 
     const offer: RTCSessionDescriptionInit = await pc.createOffer();

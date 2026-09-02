@@ -4,7 +4,7 @@ import { NextResponse } from 'next/server'
 // fetch, NextResponse and process.env, all of which the Node runtime provides.
 export const runtime = 'nodejs';
 
-export async function GET(request: Request) {
+export async function GET() {
 
     try {
 
