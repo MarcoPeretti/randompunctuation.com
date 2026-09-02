@@ -73,7 +73,6 @@ export default function AskClient() {
       <div className="container mx-auto py-2">
         <OpenAIAudioChat 
           token={data?.client_secret.value}
-          voice="alloy" 
       />
       </div>
   </div>

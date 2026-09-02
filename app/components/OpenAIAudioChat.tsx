@@ -1,27 +1,16 @@
 import React, { useState, useRef } from 'react';
 
-import cv from 'marco_peretti.resume.json';
-
 type OpenAIAudioChatProps = {
   token: string;
-  voice?: string;
 };
 
-const OpenAIAudioChat = ({ token, voice = 'alloy' }: OpenAIAudioChatProps) => {
+const OpenAIAudioChat = ({ token }: OpenAIAudioChatProps) => {
   const [isSessionActive, setIsSessionActive] = useState(false);
   const peerConnectionRef = useRef<RTCPeerConnection | null>(null);
   const audioContextRef = useRef<AudioContext | null>(null);
   const audioStreamRef = useRef<MediaStream | null>(null);
   const dataConnectionRef = useRef<RTCDataChannel | null>(null);
   const audioIndicatorRef = useRef<HTMLSpanElement | null>(null);
-
-  /*
-
-  instuctions are not the same as the prompt. the instructions are succint
-  and they influcence how the model answer< the prompt.
-
-  */
-  const encodedPrompt = encodeURIComponent(`You are a helpful assistant who is tasked to answer questions as if you were The Oracle from The Matrix movie sharing her wisdom.`);
 
   interface ConversationContent {
     type: string;
@@ -39,8 +28,7 @@ const OpenAIAudioChat = ({ token, voice = 'alloy' }: OpenAIAudioChatProps) => {
 
   const createRealtimeSession = async (
     inStream: MediaStream,
-    token: string,
-    voice: string
+    token: string
   ): Promise<RTCPeerConnection> => {
     const pc = new RTCPeerConnection();
 
@@ -68,25 +56,10 @@ const OpenAIAudioChat = ({ token, voice = 'alloy' }: OpenAIAudioChatProps) => {
       },
     };
 
-    const systemItem: ConversationItem = {
-      type: "conversation.item.create",
-      item: {
-        type: "message",
-        role: "system",
-        content: [
-          {
-            type: "input_text",
-            text:  `You are a helpful assistant who is tasked to answer questions about my resume as if you were The Oracle from The Matrix movie sharing her wisdom. Answer using the third person form and refer to him either as Marco or he and limit the answer to about 150 words. Base your answers on my resume and do your very best to answer any question. Resume: ${JSON.stringify(cv)}. If the answer cannot be found in the resume, write "Sorry, cannot not answer that question."`,
-          }
-        ]
-      },
-    };
-
     const dc: RTCDataChannel = pc.createDataChannel('openai');
 
     dc.onopen = () => {
       if (dc.readyState === 'open') {
-        dc.send(JSON.stringify(systemItem));
         dc.send(JSON.stringify(initialConversationItem));
         dc.send(JSON.stringify({"type": "response.create"}));
       }
@@ -111,8 +84,7 @@ const OpenAIAudioChat = ({ token, voice = 'alloy' }: OpenAIAudioChatProps) => {
       headers
     };
 
-    const model = 'gpt-realtime';
-    const resp: Response = await fetch(`https://api.openai.com/v1/realtime?model=${model}&voice=${voice}&instructions=${encodedPrompt}`, opts);
+    const resp: Response = await fetch('https://api.openai.com/v1/realtime/calls', opts);
 
     await pc.setRemoteDescription({
       type: 'answer',
@@ -171,8 +143,7 @@ const OpenAIAudioChat = ({ token, voice = 'alloy' }: OpenAIAudioChatProps) => {
 
       const pc = await createRealtimeSession(
         stream,
-        token,
-        voice
+        token
       );
       
     
