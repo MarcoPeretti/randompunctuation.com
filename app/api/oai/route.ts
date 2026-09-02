@@ -1,5 +1,8 @@
-export const runtime = 'edge';
 import { NextResponse } from 'next/server'
+
+// The edge runtime is deprecated in Next 16, and this handler only needs
+// fetch, NextResponse and process.env, all of which the Node runtime provides.
+export const runtime = 'nodejs';
 
 export async function GET(request: Request) {
 
