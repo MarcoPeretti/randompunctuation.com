@@ -1,6 +1,13 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:recommended"
-  ]
+  "extends": ["github>MarcoPeretti/updatebot"],
+  "packageRules": [
+    {
+      "description": "Temporary: this repo has no CI yet, so nothing may automerge. Remove with the CI PR.",
+      "matchPackageNames": ["*"],
+      "automerge": false
+    }
+  ],
+  "lockFileMaintenance": { "automerge": false },
+  "vulnerabilityAlerts": { "automerge": false }
 }
