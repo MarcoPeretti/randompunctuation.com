@@ -4,6 +4,8 @@
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
     "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
     "delete": "rm -rf app/n"
   },
   "dependencies": {

@@ -1,0 +1,24 @@
+name: ci
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  site:
+    name: site (lint, build, typecheck)
+    uses: MarcoPeretti/updatebot/.github/workflows/ci-node.yml@main
+    with:
+      package-manager: pnpm
+      node-version: "24"
+      # typecheck after build: image imports need next-env.d.ts, which the build generates.
+      # POSTGRES_URL is deliberately unset so next.config.ts skips the redirects query.
+      scripts: lint build typecheck
