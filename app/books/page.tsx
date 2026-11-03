@@ -159,12 +159,16 @@ async function fetchShelfBooks(shelf: string): Promise<Book[]> {
 }
 
 async function getBooks(): Promise<Book[]> {
-  // Fetch all shelves in parallel and merge
-  const results = await Promise.all(
+  // Fetch all shelves in parallel and merge. A shelf that fails is logged and
+  // skipped so a dead Goodreads feed can't fail the build.
+  const results = await Promise.allSettled(
     SHELVES.map(({ name }) => fetchShelfBooks(name))
   );
-  // Flatten and return
-  return results.flat();
+  return results.flatMap((r) => {
+    if (r.status === "fulfilled") return r.value;
+    console.error(r.reason);
+    return [];
+  });
 }
 
 export default async function Page() {
@@ -183,7 +187,14 @@ export default async function Page() {
           Books
         </a>
       </h1>
-      <ShelfFilter books={books} />
+      {books.length > 0 ? (
+        <ShelfFilter books={books} />
+      ) : (
+        <p className="text-sm text-neutral-600 dark:text-neutral-400">
+          My shelves are unavailable right now. Try the Goodreads profile
+          linked above.
+        </p>
+      )}
     </main>
   );
 }
