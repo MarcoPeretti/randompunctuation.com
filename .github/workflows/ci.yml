@@ -19,6 +19,8 @@ jobs:
     with:
       package-manager: pnpm
       node-version: "24"
+      # Empty so pnpm/action-setup reads the version from package.json's packageManager.
+      pnpm-version: ""
       # typecheck after build: image imports need next-env.d.ts, which the build generates.
       # POSTGRES_URL is deliberately unset so next.config.ts skips the redirects query.
       scripts: lint build typecheck
