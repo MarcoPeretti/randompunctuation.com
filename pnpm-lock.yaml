@@ -44,7 +44,7 @@ importers:
         version: 19.3.1(react@19.3.1)
       sugar-high:
         specifier: ^2.6.2
-        version: 2.6.2
+        version: 2.6.4
     devDependencies:
       '@types/node':
         specifier: 24.19.2
@@ -1934,8 +1934,8 @@ packages:
       babel-plugin-macros:
         optional: true
 
-  sugar-high@2.6.2:
-    resolution: {integrity: sha512-5mO9Zscg++wspkvgWwJ5YXY3fdkEAeIV/8C4YAjw5rbyYT+tvfyb3SDo3a3jGLpXOtXEpBXz5ymOLDB6j5dmDA==}
+  sugar-high@2.6.4:
+    resolution: {integrity: sha512-GJkKsIyzqPMCJabhM8c4IKBg3aKUtI62DMPGdgFuXDo0Z5LY+q3SIT3PsSjGkOT9IglhCR6dZBDVQYmdIfumsw==}
 
   supports-preserve-symlinks-flag@1.0.0:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
@@ -4058,7 +4058,7 @@ snapshots:
     optionalDependencies:
       '@babel/core': 7.29.7
 
-  sugar-high@2.6.2: {}
+  sugar-high@2.6.4: {}
 
   supports-preserve-symlinks-flag@1.0.0: {}
 
