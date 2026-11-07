@@ -9,7 +9,7 @@
     "delete": "rm -rf app/n"
   },
   "dependencies": {
-    "@next/mdx": "16.4.3",
+    "@next/mdx": "16.4.5",
     "@tailwindcss/postcss": "^4.3.3",
     "@types/mdx": "^2.0.14",
     "@vercel/analytics": "^2.0.1",
