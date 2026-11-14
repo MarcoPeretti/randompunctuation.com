@@ -15,7 +15,7 @@ permissions:
 jobs:
   site:
     name: site (lint, build, typecheck)
-    uses: MarcoPeretti/updatebot/.github/workflows/ci-node.yml@main
+    uses: MarcoPeretti/updatebot/.github/workflows/ci-node.yml@1166efbf868bf732a8988abc180a341fc0b76cde # main
     with:
       package-manager: pnpm
       node-version: "24"
