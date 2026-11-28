@@ -15,6 +15,10 @@
 # production
 /build
 
+# this repo uses pnpm only
+package-lock.json
+yarn.lock
+
 # misc
 .DS_Store
 *.pem
